@@ -1,10 +1,10 @@
 {
-	"name": "@vueuse/monorepo",
+	"name": "@svelteuse/monorepo",
 	"version": "0.0.1",
 	"private": true,
 	"packageManager": "pnpm@7.1.7",
-	"description": "Collection of essential Vue Composition Utilities",
-	"author": "Anthony Fu<https://github.com/antfu>",
+	"description": "Collection of essential Svelte Utilities",
+	"author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
 	"license": "MIT",
 	"scripts": {
 		"build": "nr update && esno scripts/build.ts",
@@ -83,28 +83,17 @@
 		"typescript": "4.7.2",
 		"unocss": "^0.34.1",
 		"unplugin-icons": "^0.14.3",
-		"unplugin-vue-components": "^0.19.5",
 		"vite": "^2.9.9",
 		"vite-plugin-inspect": "^0.5.0",
 		"vite-plugin-pwa": "^0.12.0",
 		"vitepress": "^0.22.4",
-		"vitest": "^0.12.9",
-		"vue": "^3.2.36",
-		"vue2": "npm:vue@^2.6.14"
-	},
-	"pnpm": {
-		"neverBuiltDependencies": [
-			"electron"
-		],
-		"overrides": {
-			"vue-demi": "0.13.0"
-		}
+		"vitest": "^0.12.9"
 	},
 	"simple-git-hooks": {
 		"pre-commit": "npx lint-staged"
 	},
 	"lint-staged": {
-		"*.{js,ts,tsx,vue,md}": [
+		"*.{js,ts,tsx,svelte,md}": [
 			"eslint --fix"
 		]
 	}
