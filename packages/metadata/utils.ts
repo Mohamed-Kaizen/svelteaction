@@ -15,6 +15,7 @@ export function getCategories(functions: SvelteActionFunction[]): string[] {
 	)
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function uniq<T extends any[]>(a: T) {
 	return Array.from(new Set(a))
 }

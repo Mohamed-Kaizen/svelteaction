@@ -6,7 +6,6 @@ import json from "@rollup/plugin-json"
 import type { OutputOptions, RollupOptions } from "rollup"
 import fg from "fast-glob"
 import { packages } from "../meta/packages"
-import { functions } from "../packages/metadata/metadata"
 
 const configs: RollupOptions[] = []
 
@@ -64,8 +63,6 @@ for (const {
 			fn === "index"
 				? `packages/${name}/index.ts`
 				: `packages/${name}/${fn}/index.ts`
-
-		const info = functions.find((i) => i.name === fn)
 
 		const output: OutputOptions[] = []
 

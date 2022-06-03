@@ -8,6 +8,8 @@ import Git from "simple-git"
 import type {
 	PackageIndexes,
 	SvelteActionFunction,
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
 } from "@svelteaction/metadata"
 import { $fetch } from "ohmyfetch"
 import { packages } from "../meta/packages"
@@ -98,7 +100,7 @@ export async function updateImport({ packages, functions }: PackageIndexes) {
 		await fs.writeFile(join(dir, "index.ts"), `${imports.join("\n")}\n`)
 	}
 }
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function uniq<T extends any[]>(a: T) {
 	return Array.from(new Set(a))
 }
@@ -177,10 +179,7 @@ export async function updatePackageREADME({
 	}
 }
 
-export async function updateIndexREADME({
-	packages,
-	functions,
-}: PackageIndexes) {
+export async function updateIndexREADME({ functions }: PackageIndexes) {
 	let readme = await fs.readFile("README.md", "utf-8")
 
 	const functionsCount = functions.filter((i) => !i.internal).length

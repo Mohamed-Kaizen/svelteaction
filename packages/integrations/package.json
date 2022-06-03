@@ -1,39 +1,44 @@
 {
-	"name": "@svelteaction/integrations",
-	"version": "0.0.1",
-	"description": "Integration wrappers for utility libraries",
-	"author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
-	"license": "MIT",
-	"homepage": "https://github.com/Mohamed-Kaizen/svelteaction/tree/main/packages/integrations#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Mohamed-Kaizen/svelteaction.git",
-		"directory": "packages/integrations"
-	},
-	"bugs": {
-		"url": "https://github.com/Mohamed-Kaizen/svelteaction/issues"
-	},
-	"keywords": [
-		"svelte",
-		"svelte-action",
-		"utils"
-	],
-	"sideEffects": false,
-	"exports": {
-		".": {
-			"types": "./index.d.ts",
-			"import": "./index.mjs",
-			"require": "./index.cjs"
-		},
-		"./*": "./*"
-	},
-	"main": "./index.cjs",
-	"module": "./index.mjs",
-	"unpkg": "./index.iife.min.js",
-	"jsdelivr": "./index.iife.min.js",
-	"types": "./index.d.ts",
-	"dependencies": {
-		"@svelteaction/core": "workspace:*",
-		"@svelteaction/shared": "workspace:*"
-	}
+  "name": "@svelteaction/integrations",
+  "version": "0.0.7",
+  "description": "Integration wrappers for utility libraries",
+  "author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
+  "license": "MIT",
+  "homepage": "https://github.com/Mohamed-Kaizen/svelteaction/tree/main/packages/integrations#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohamed-Kaizen/svelteaction.git",
+    "directory": "packages/integrations"
+  },
+  "bugs": {
+    "url": "https://github.com/Mohamed-Kaizen/svelteaction/issues"
+  },
+  "keywords": [
+    "svelte",
+    "svelte-action",
+    "utils"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    },
+    "./*": "./*",
+    "./useIntegrations": {
+      "types": "./useIntegrations.d.ts",
+      "import": "./useIntegrations.mjs",
+      "require": "./useIntegrations.cjs"
+    }
+  },
+  "main": "./index.cjs",
+  "module": "./index.mjs",
+  "unpkg": "./index.iife.min.js",
+  "jsdelivr": "./index.iife.min.js",
+  "types": "./index.d.ts",
+  "dependencies": {
+    "@svelteaction/core": "workspace:*",
+    "@svelteaction/shared": "workspace:*"
+  }
 }

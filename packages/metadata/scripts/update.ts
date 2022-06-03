@@ -5,6 +5,8 @@ import type {
 	PackageIndexes,
 	SvelteActionFunction,
 	SvelteActionPackage,
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
 } from "@svelteaction/metadata"
 import fg from "fast-glob"
 import Git from "simple-git"
@@ -128,21 +130,26 @@ export async function readMetadata() {
 		)
 	}
 
-	indexes.functions.sort((a, b) => a.name.localeCompare(b.name))
+	indexes.functions.sort((a: SvelteActionFunction, b: SvelteActionFunction) =>
+		a.name.localeCompare(b.name)
+	)
 	indexes.categories = getCategories(indexes.functions)
 
 	// interop related
-	indexes.functions.forEach((fn) => {
+	indexes.functions.forEach((fn: SvelteActionFunction) => {
 		if (!fn.related) return
 
-		fn.related.forEach((name) => {
-			const target = indexes.functions.find((f) => f.name === name)
+		fn.related.forEach((name: string) => {
+			const target = indexes.functions.find(
+				(f: SvelteActionFunction) => f.name === name
+			)
 			if (!target) throw new Error(`Unknown related function: ${name}`)
 			if (!target.related) target.related = []
 			if (!target.related.includes(fn.name)) target.related.push(fn.name)
 		})
 	})
-	indexes.functions.forEach((fn) => fn.related?.sort())
+
+	indexes.functions.forEach((fn: SvelteActionFunction) => fn.related?.sort())
 
 	return indexes
 }

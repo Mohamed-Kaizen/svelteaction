@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import type { PackageManifest } from "@svelteaction/metadata"
 
 export const packages: PackageManifest[] = [
