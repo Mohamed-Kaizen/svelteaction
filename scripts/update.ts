@@ -1,6 +1,8 @@
 import fs from "fs-extra"
+import { metadata } from "../packages/metadata/metadata"
 import {
-	readIndexes,
+	updateContributors,
+	updateCountBadge,
 	updateFunctionREADME,
 	updateFunctionsMD,
 	updateImport,
@@ -10,18 +12,18 @@ import {
 } from "./utils"
 
 async function run() {
-	const indexes = await readIndexes()
-
-	fs.writeJSON("indexes.json", indexes, { spaces: 2 })
-	await updateImport(indexes)
-	await updatePackageREADME(indexes)
-	await updateIndexREADME(indexes)
-	await updateFunctionsMD(indexes)
-	await updateFunctionREADME(indexes)
-	await updatePackageJSON(indexes)
+	await Promise.all([
+		updateImport(metadata),
+		updatePackageREADME(metadata),
+		updateIndexREADME(metadata),
+		updateFunctionsMD(metadata),
+		updateFunctionREADME(metadata),
+		updatePackageJSON(metadata),
+		updateCountBadge(metadata),
+		updateContributors(),
+	])
 
 	await fs.copy("./CONTRIBUTING.md", "./packages/contributing.md")
-	await fs.copy("./indexes.json", "./packages/core/indexes.json")
 }
 
 run()

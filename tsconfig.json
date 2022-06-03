@@ -17,11 +17,14 @@
 		"skipLibCheck": true,
 		"noUnusedLocals": true,
 		"paths": {
-			"@svelteuse/core": ["./packages/core/index.ts"],
-			"@svelteuse/core/*": ["./packages/core/*"],
-			"@svelteuse/shared": ["./packages/shared/index.ts"],
-			"@svelteuse/shared/*": ["./packages/shared/*"]
+			"@svelteaction/core": ["./packages/core/index.ts"],
+			"@svelteaction/core/*": ["./packages/core/*"],
+			"@svelteaction/integrations": ["./packages/integrations/index.ts"],
+			"@svelteaction/metadata": ["./packages/metadata/index.ts"],
+			"@svelteaction/shared": ["./packages/shared/index.ts"],
+			"@svelteaction/shared/*": ["./packages/shared/*"]
 		}
 	},
-	"include": ["packages"]
+	"include": ["packages", "meta"],
+	"exclude": ["node_modules", "**/**/*.md", "**/dist", "packages/.test"]
 }

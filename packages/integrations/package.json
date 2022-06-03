@@ -1,13 +1,14 @@
 {
-	"name": "@svelteaction/shared",
+	"name": "@svelteaction/integrations",
 	"version": "0.0.1",
+	"description": "Integration wrappers for utility libraries",
 	"author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
 	"license": "MIT",
-	"homepage": "https://github.com/Mohamed-Kaizen/svelteaction/tree/main/packages/shared#readme",
+	"homepage": "https://github.com/Mohamed-Kaizen/svelteaction/tree/main/packages/integrations#readme",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Mohamed-Kaizen/svelteaction.git",
-		"directory": "packages/shared"
+		"directory": "packages/integrations"
 	},
 	"bugs": {
 		"url": "https://github.com/Mohamed-Kaizen/svelteaction/issues"
@@ -31,5 +32,8 @@
 	"unpkg": "./index.iife.min.js",
 	"jsdelivr": "./index.iife.min.js",
 	"types": "./index.d.ts",
-	"dependencies": {}
+	"dependencies": {
+		"@svelteaction/core": "workspace:*",
+		"@svelteaction/shared": "workspace:*"
+	}
 }

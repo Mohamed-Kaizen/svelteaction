@@ -1,21 +1,21 @@
 {
-	"name": "@svelteuse/core",
+	"name": "@svelteaction/core",
 	"version": "0.0.1",
 	"description": "Collection of essential Svelte Utilities",
 	"author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
 	"license": "MIT",
-	"homepage": "https://github.com/Mohamed-Kaizen/svelteuse#readme",
+	"homepage": "https://github.com/Mohamed-Kaizen/svelteaction#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Mohamed-Kaizen/svelteuse.git",
+		"url": "git+https://github.com/Mohamed-Kaizen/svelteaction.git",
 		"directory": "packages/core"
 	},
 	"bugs": {
-		"url": "https://github.com/Mohamed-Kaizen/svelteuse/issues"
+		"url": "https://github.com/Mohamed-Kaizen/svelteaction/issues"
 	},
 	"keywords": [
 		"svelte",
-		"svelte-use",
+		"svelte-action",
 		"utils"
 	],
 	"sideEffects": false,
@@ -33,6 +33,6 @@
 	"jsdelivr": "./index.iife.min.js",
 	"types": "./index.d.ts",
 	"dependencies": {
-		"@svelteuse/shared": "workspace:*"
+		"@svelteaction/shared": "workspace:*"
 	}
 }

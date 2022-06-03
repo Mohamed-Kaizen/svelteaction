@@ -1,21 +1,21 @@
 {
-	"name": "@svelteaction/shared",
+	"name": "@svelteaction/metadata",
 	"version": "0.0.1",
+	"description": "Metadata for SvelteAction functions",
 	"author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
 	"license": "MIT",
-	"homepage": "https://github.com/Mohamed-Kaizen/svelteaction/tree/main/packages/shared#readme",
+	"homepage": "https://github.com/Mohamed-Kaizen/svelteaction/tree/main/packages/metadata#readme",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Mohamed-Kaizen/svelteaction.git",
-		"directory": "packages/shared"
+		"directory": "packages/metadata"
 	},
 	"bugs": {
 		"url": "https://github.com/Mohamed-Kaizen/svelteaction/issues"
 	},
 	"keywords": [
 		"svelte",
-		"svelte-action",
-		"utils"
+		"svelte-action"
 	],
 	"sideEffects": false,
 	"exports": {
@@ -28,8 +28,11 @@
 	},
 	"main": "./index.cjs",
 	"module": "./index.mjs",
-	"unpkg": "./index.iife.min.js",
-	"jsdelivr": "./index.iife.min.js",
 	"types": "./index.d.ts",
-	"dependencies": {}
+	"files": [
+		"index.*"
+	],
+	"scripts": {
+		"update": "esno scripts/update.ts"
+	}
 }
