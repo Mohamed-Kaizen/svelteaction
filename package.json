@@ -93,7 +93,7 @@
 		"vitest": "^0.12.9"
 	},
 	"simple-git-hooks": {
-		"pre-commit": "npx lint-staged"
+		"pre-commit": "npx lint-staged && npx vitest run"
 	},
 	"lint-staged": {
 		"*.{js,ts,tsx}": [
