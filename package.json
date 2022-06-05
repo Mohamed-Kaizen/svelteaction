@@ -2,7 +2,7 @@
 	"name": "@svelteaction/monorepo",
 	"version": "0.0.8",
 	"private": true,
-	"packageManager": "pnpm@7.1.7",
+	"packageManager": "pnpm@7.1.8",
 	"description": "Collection of essential Svelte Utilities",
 	"author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
 	"license": "MIT",
@@ -12,6 +12,7 @@
 		"build:rollup": "cross-env NODE_OPTIONS=\"--max-old-space-size=6144\" rollup -c",
 		"build:types": "tsc --emitDeclarationOnly",
 		"clean": "rimraf dist types packages/*/dist",
+		"coverage": "vitest run --coverage",
 		"dev": "nr update && nr docs",
 		"docs": "vitepress dev packages --open",
 		"docs:build": "nr update:full && vitepress build packages && nr build:redirects && esno scripts/post-docs.ts",
@@ -45,6 +46,7 @@
 		"@vitest/ui": "^0.12.9",
 		"axios": "^0.27.2",
 		"bumpp": "^7.1.1",
+		"c8": "^7.11.3",
 		"consola": "^2.15.3",
 		"cross-env": "^7.0.3",
 		"esbuild-register": "^3.3.2",
@@ -80,6 +82,7 @@
 		"sharp": "^0.30.5",
 		"simple-git": "^3.7.1",
 		"simple-git-hooks": "^2.7.0",
+		"svelte": "^3.48.0",
 		"typescript": "4.7.2",
 		"unocss": "^0.34.1",
 		"unplugin-icons": "^0.14.3",
@@ -93,7 +96,7 @@
 		"pre-commit": "npx lint-staged"
 	},
 	"lint-staged": {
-		"*.{js,ts,tsx,svelte,md}": [
+		"*.{js,ts,tsx}": [
 			"eslint --fix"
 		]
 	}

@@ -55,7 +55,6 @@ We use monorepo for multiple packages
 packages
   shared/         - shared utils across packages
   core/           - the core package
-  firebase/       - the Firebase add-on
   [...addons]/    - add-ons named
 ```
 
@@ -67,7 +66,7 @@ A function folder typicality contains these 4 files:
 
 ```bash
 index.ts            # function source code itself
-demo.vue            # documentation demo
+demo.svelte         # documentation demo
 index.test.ts       # vitest unit testing
 index.md            # documentation
 ```

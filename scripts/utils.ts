@@ -55,46 +55,24 @@ export function hasDemo(pkg: string, name: string) {
 }
 
 export async function updateImport({ packages, functions }: PackageIndexes) {
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
 	for (const { name, dir, manualImport } of Object.values(packages)) {
 		if (manualImport) continue
 
-		let imports: string[]
-		if (name === "components") {
-			imports = functions
-				.sort((a, b) => a.name.localeCompare(b.name))
-				.flatMap((fn) => {
-					const arr: string[] = []
+		let imports: string[] = []
 
-					// don't include integration components
-					if (fn.package === "integrations") return arr
-
-					if (fn.component)
-						arr.push(
-							`export * from '../${fn.package}/${fn.name}/component'`
-						)
-					if (fn.directive)
-						arr.push(
-							`export * from '../${fn.package}/${fn.name}/directive'`
-						)
-					return arr
-				})
-		} else {
-			imports = functions
-				.filter((i) => i.package === name)
-				.map((f) => f.name)
-				.sort()
-				.map((name) => `export * from './${name}'`)
-		}
+		imports = functions
+			.filter((i) => i.package === name)
+			.map((f) => f.name)
+			.sort()
+			.map((name) => `export * from './${name}'`)
 
 		if (name === "core") {
 			imports.push(
 				"export * from './types'",
 				"export * from '@svelteaction/shared'"
 			)
-		}
-
-		if (name === "nuxt") {
-			imports.push("export * from '@svelteaction/core'")
 		}
 
 		await fs.writeFile(join(dir, "index.ts"), `${imports.join("\n")}\n`)
@@ -163,6 +141,8 @@ export async function updatePackageREADME({
 	packages,
 	functions,
 }: PackageIndexes) {
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
 	for (const { name, dir } of Object.values(packages)) {
 		const readmePath = join(dir, "README.md")
 
@@ -193,7 +173,8 @@ export async function updateIndexREADME({ functions }: PackageIndexes) {
 }
 
 export async function updateFunctionsMD({
-	packages,
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	packages: SvelteActionFunction,
 	functions,
 }: PackageIndexes) {
 	let mdAddons = await fs.readFile("packages/add-ons.md", "utf-8")
@@ -296,13 +277,6 @@ export async function updatePackageJSON(indexes: PackageIndexes) {
 						import: `./${i.name}.mjs`,
 						require: `./${i.name}.cjs`,
 					}
-					if (i.component) {
-						packageJSON.exports[`./${i.name}/component`] = {
-							types: `./${i.name}/component.d.ts`,
-							import: `./${i.name}/component.mjs`,
-							require: `./${i.name}/component.cjs`,
-						}
-					}
 				})
 		}
 
@@ -316,7 +290,7 @@ async function fetchContributors(page = 1) {
 	const collaborators: string[] = []
 	const data =
 		(await $fetch<{ login: string }[]>(
-			`https://api.github.com/repos/vueuse/vueuse/contributors?per_page=100&page=${page}`,
+			`https://api.github.com/repos/Mohamed-Kaizen/svelteaction/contributors?per_page=100&page=${page}`,
 			{
 				method: "get",
 				headers: {
