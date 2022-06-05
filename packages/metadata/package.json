@@ -1,6 +1,6 @@
 {
   "name": "@svelteaction/metadata",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Metadata for SvelteAction functions",
   "author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
   "license": "MIT",
