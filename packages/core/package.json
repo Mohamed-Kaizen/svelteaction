@@ -1,6 +1,6 @@
 {
   "name": "@svelteaction/core",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Collection of essential Svelte Utilities",
   "author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
   "license": "MIT",

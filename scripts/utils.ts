@@ -1,58 +1,22 @@
 import { join, resolve } from "path"
 import fs from "fs-extra"
 import matter from "gray-matter"
-import parser from "prettier/parser-typescript"
-import prettier from "prettier"
 import YAML from "js-yaml"
 import Git from "simple-git"
-import type {
-	PackageIndexes,
-	SvelteActionFunction,
-	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-	// @ts-ignore
-} from "@svelteaction/metadata"
+import type { PackageIndexes, SvelteActionFunction } from "./meta/types"
 import { $fetch } from "ohmyfetch"
-import { packages } from "../meta/packages"
-import { getCategories } from "../packages/metadata/utils"
+import { packages } from "./meta/packages"
+import {
+	getCategories,
+	DIR_ROOT,
+	DIR_SRC,
+	DIR_DOCS_ROUTE,
+	getPackageDocIndex,
+} from "./meta/utils"
 
 export const git = Git()
 
-export const DOCS_URL = "https://svelteaction.org"
-
-export const DIR_ROOT = resolve(__dirname, "..")
-export const DIR_SRC = resolve(__dirname, "../packages")
 const DIR_TYPES = resolve(__dirname, "../types/packages")
-
-export async function getTypeDefinition(
-	pkg: string,
-	name: string
-): Promise<string | undefined> {
-	const typingFilepath = join(DIR_TYPES, `${pkg}/${name}/index.d.ts`)
-
-	if (!fs.existsSync(typingFilepath)) return
-
-	let types = await fs.readFile(typingFilepath, "utf-8")
-
-	if (!types) return
-
-	// clean up types
-	types = types
-		.replace(/import\(.*?\)\./g, "")
-		.replace(/import[\s\S]+?from ?["'][\s\S]+?["']/g, "")
-		.replace(/export {}/g, "")
-
-	return prettier
-		.format(types, {
-			semi: false,
-			parser: "typescript",
-			plugins: [parser],
-		})
-		.trim()
-}
-
-export function hasDemo(pkg: string, name: string) {
-	return fs.existsSync(join(DIR_SRC, pkg, name, "demo.svelte"))
-}
 
 export async function updateImport({ packages, functions }: PackageIndexes) {
 	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -202,17 +166,43 @@ export async function updateFunctionREADME(indexes: PackageIndexes) {
 
 	for (const fn of indexes.functions) {
 		const mdPath = `packages/${fn.package}/${fn.name}/index.md`
+
+		const demo = `
+<script>
+    import Demo from "./_${fn.name}.svelte";
+</script>
+
+## Demo
+
+<Demo/>`
 		if (!fs.existsSync(mdPath)) continue
 
 		let readme = await fs.readFile(mdPath, "utf-8")
 
 		const { content, data = {} } = matter(readme)
 
+		const demoContent = content.replace(
+			"{$frontmatter.description}",
+			`{$frontmatter.description}\n${demo}`
+		)
+
 		data.category = fn.category || "Unknown"
 
 		readme = `---\n${YAML.dump(data)}---\n\n${content.trim()}`
 
+		const demoReadme = `---\n${YAML.dump(data)}---\n\n${demoContent.trim()}`
+
+		const docsPath = `${DIR_DOCS_ROUTE}/[...${getPackageDocIndex(
+			fn.package
+		)}]${fn.package}`
+
 		await fs.writeFile(mdPath, `${readme.trim()}\n`, "utf-8")
+
+		await fs.writeFile(
+			join(docsPath, `${fn.name}.md`),
+			`${demoReadme.trim()}\n`,
+			"utf-8"
+		)
 	}
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "@svelteaction/shared",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Shared utilities",
   "author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
   "license": "MIT",

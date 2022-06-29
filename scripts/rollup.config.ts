@@ -13,11 +13,7 @@ const esbuildPlugin = esbuild()
 
 const dtsPlugin = [dts()]
 
-const externals = [
-	"@svelteaction/shared",
-	"@svelteaction/core",
-	"@svelteaction/metadata",
-]
+const externals = ["@svelteaction/shared", "@svelteaction/core"]
 
 const esbuildMinifer = (options: ESBuildOptions) => {
 	const { renderChunk } = esbuild(options)

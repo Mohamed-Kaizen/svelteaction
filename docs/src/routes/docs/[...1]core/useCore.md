@@ -8,6 +8,14 @@ category: Utilities
 
 {$frontmatter.description}
 
+<script>
+    import Demo from "./_useCore.svelte";
+</script>
+
+## Demo
+
+<Demo/>
+
 ## Usage
 
 ```js

@@ -21,12 +21,17 @@
 			"@svelteaction/core": ["./packages/core/index.ts"],
 			"@svelteaction/core/*": ["./packages/core/*"],
 			"@svelteaction/integrations": ["./packages/integrations/index.ts"],
-			"@svelteaction/metadata": ["./packages/metadata/index.ts"],
 			"@svelteaction/shared": ["./packages/shared/index.ts"],
 			"@svelteaction/shared/*": ["./packages/shared/*"]
 		},
 		"types": ["vitest", "vitest/globals"]
 	},
 	"include": ["packages", "meta", "vitest.config.ts"],
-	"exclude": ["node_modules", "**/**/*.md", "**/dist", "packages/.test", "docs"]
+	"exclude": [
+		"node_modules",
+		"**/**/*.md",
+		"**/dist",
+		"packages/.test",
+		"docs"
+	]
 }

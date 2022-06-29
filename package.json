@@ -1,6 +1,6 @@
 {
 	"name": "@svelteaction/monorepo",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"private": true,
 	"packageManager": "pnpm@7.3.0",
 	"description": "Collection of essential Svelte Utilities",
@@ -26,7 +26,8 @@
 		"test": "vitest run",
 		"test:watch": "vitest --watch",
 		"typecheck": "tsc --noEmit",
-		"update": "esno scripts/update.ts",
+		"update": "esno scripts/meta/update.ts && esno scripts/update.ts",
+		"upx": "nr -C packages/metadata update && esno scripts/update.ts",
 		"update:full": "nr update && nr build:types",
 		"watch": "esno scripts/build.ts --watch"
 	},

@@ -4,14 +4,6 @@ import type { PackageManifest } from "./types"
 
 export const packages: PackageManifest[] = [
 	{
-		name: "metadata",
-		display: "Metadata for SvelteAction functions",
-		manualImport: true,
-		iife: false,
-		utils: true,
-		target: "node14",
-	},
-	{
 		name: "shared",
 		display: "Shared utilities",
 	},
@@ -26,5 +18,6 @@ export const packages: PackageManifest[] = [
 		description: "Integration wrappers for utility libraries",
 		addon: true,
 		submodules: true,
+		external: ["@svelteaction/core", "@svelteaction/shared"],
 	},
 ]

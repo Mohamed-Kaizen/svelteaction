@@ -1,11 +1,11 @@
 import md5 from "md5"
 import Git from "simple-git"
-import { functions } from "../packages/metadata/metadata"
+import { functions } from "./meta/metadata"
 import { uniq } from "./utils"
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import type { CommitInfo, ContributorInfo } from "@svelteaction/metadata"
+import type { CommitInfo, ContributorInfo } from "./meta/types"
 
 const git = Git({
 	maxConcurrentProcesses: 200,

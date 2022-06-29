@@ -3,8 +3,8 @@ import fg from "fast-glob"
 import fs from "fs-extra"
 import sharp from "sharp"
 import removeMD from "remove-markdown"
-import { functions } from "../packages/metadata/metadata"
-import type { SvelteActionFunction } from "../packages/metadata/types"
+import { functions } from "./meta/metadata"
+import type { SvelteActionFunction } from "./meta/types"
 
 const ogSVg = fs.readFileSync("./scripts/og-template.svg", "utf-8")
 

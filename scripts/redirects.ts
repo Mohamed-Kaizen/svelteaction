@@ -1,5 +1,5 @@
 import fs from "fs-extra"
-import { functions } from "../packages/metadata/metadata"
+import { functions } from "./meta/metadata"
 
 async function buildRedirects() {
 	const redirects = functions
