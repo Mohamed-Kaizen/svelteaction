@@ -52,7 +52,7 @@ async function run() {
 		md += "\n\n"
 	}
 	await fs.removeSync(path.join(sharedPkgRoot, "index.mjs"))
-	await fs.writeFile("packages/export-size.md", md, "utf-8")
+	await fs.writeFile("docs/src/routes/export-size@kit-docs.md", md, "utf-8")
 }
 
 run()

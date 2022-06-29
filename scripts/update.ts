@@ -23,7 +23,10 @@ async function run() {
 		updateContributors(),
 	])
 
-	await fs.copy("./CONTRIBUTING.md", "./packages/contributing.md")
+	await fs.copy(
+		"./CONTRIBUTING.md",
+		"./docs/src/routes/contributing@kit-docs.md"
+	)
 }
 
 run()

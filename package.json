@@ -2,7 +2,7 @@
 	"name": "@svelteaction/monorepo",
 	"version": "0.0.8",
 	"private": true,
-	"packageManager": "pnpm@7.1.8",
+	"packageManager": "pnpm@7.3.0",
 	"description": "Collection of essential Svelte Utilities",
 	"author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
 	"license": "MIT",
@@ -26,12 +26,12 @@
 		"test": "vitest run",
 		"test:watch": "vitest --watch",
 		"typecheck": "tsc --noEmit",
-		"update": "nr -C packages/metadata update && esno scripts/update.ts",
+		"update": "esno scripts/update.ts",
 		"update:full": "nr update && nr build:types",
 		"watch": "esno scripts/build.ts --watch"
 	},
 	"devDependencies": {
-		"@antfu/ni": "^0.16.2",
+		"@antfu/ni": "^0.16.3",
 		"@rollup/plugin-json": "^4.1.0",
 		"@rollup/plugin-replace": "^4.0.0",
 		"@types/fs-extra": "^9.0.13",

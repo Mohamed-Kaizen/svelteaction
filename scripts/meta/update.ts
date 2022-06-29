@@ -5,13 +5,11 @@ import type {
 	PackageIndexes,
 	SvelteActionFunction,
 	SvelteActionPackage,
-	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-	// @ts-ignore
-} from "@svelteaction/metadata"
+} from "./types"
 import fg from "fast-glob"
 import Git from "simple-git"
-import { packages } from "../../../meta/packages"
-import { getCategories } from "../utils"
+import { packages } from "./packages"
+import { getCategories } from "./utils"
 
 export const DOCS_URL = "https://svelteaction.org"
 export const DIR_PACKAGE = resolve(__dirname, "..")

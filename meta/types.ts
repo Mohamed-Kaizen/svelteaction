@@ -28,8 +28,6 @@ export interface SvelteActionFunction {
 	docs?: string
 	deprecated?: boolean
 	internal?: boolean
-	// component?: boolean
-	// directive?: boolean
 	external?: string
 	alias?: string[]
 	related?: string[]

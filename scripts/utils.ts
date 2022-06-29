@@ -217,11 +217,11 @@ export async function updateFunctionREADME(indexes: PackageIndexes) {
 }
 
 export async function updateCountBadge(indexes: PackageIndexes) {
-	const functionsCount = indexes.functions.filter((i) => !i.internal).length
+	const functionsCount = indexes.functions.filter((i) => i.internal).length
 	const url = `https://img.shields.io/badge/-${functionsCount}%20functions-13708a`
 	const data = await $fetch(url, { responseType: "text" })
 	await fs.writeFile(
-		join(DIR_ROOT, "packages/public/badge-function-count.svg"),
+		join(DIR_ROOT, "docs/static/badge-function-count.svg"),
 		data,
 		"utf-8"
 	)
@@ -320,8 +320,8 @@ async function fetchContributors(page = 1) {
 export async function updateContributors() {
 	const collaborators = await fetchContributors()
 	await fs.writeFile(
-		join(DIR_SRC, "./contributors.json"),
-		`${JSON.stringify(collaborators, null, 2)}\n`,
+		"docs/src/routes/api/contributors.json",
+		`${JSON.stringify(collaborators, null, 4)}\n`,
 		"utf8"
 	)
 }
