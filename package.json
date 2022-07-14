@@ -8,7 +8,6 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "pnpm run update && esno scripts/build.ts",
-		"build:redirects": "esno scripts/redirects.ts",
 		"build:rollup": "cross-env NODE_OPTIONS=\"--max-old-space-size=6144\" rollup -c",
 		"build:types": "tsc --emitDeclarationOnly",
 		"clean": "rimraf dist types packages/*/dist",
@@ -26,7 +25,6 @@
 		"test:watch": "vitest --watch",
 		"typecheck": "tsc --noEmit",
 		"update": "esno scripts/meta/update.ts && esno scripts/update.ts && esno scripts/export-size.ts",
-		"update:full": "pnpm run update && pnpm run build:types",
 		"watch": "esno scripts/build.ts --watch"
 	},
 	"devDependencies": {
