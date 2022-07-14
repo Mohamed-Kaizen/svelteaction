@@ -29,13 +29,13 @@ export function uniq<T extends any[]>(a: T) {
 
 export function getPackageDocIndex(name: string): number {
 	if (name === "core") {
-		return 1
+		return 2
 	}
 	if (name === "shared") {
-		return 3
+		return 4
 	}
 	if (name === "integrations") {
-		return 2
+		return 3
 	}
 	return 0
 }

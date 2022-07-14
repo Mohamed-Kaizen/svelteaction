@@ -38,7 +38,6 @@
   "jsdelivr": "./index.iife.min.js",
   "types": "./index.d.ts",
   "dependencies": {
-    "@svelteaction/core": "workspace:*",
     "@svelteaction/shared": "workspace:*"
   }
 }

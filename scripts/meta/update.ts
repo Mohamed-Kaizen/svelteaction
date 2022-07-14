@@ -17,7 +17,6 @@ import {
 	DIR_DOCS_ROUTE,
 	getPackageDocIndex,
 } from "./utils"
-import consola from "consola"
 
 export const git = Git(DIR_ROOT)
 
@@ -82,13 +81,6 @@ export async function readMetadata() {
 					indexes.functions.push(fn)
 					return
 				}
-				if (!fs.existsSync(demoPath)) {
-					consola.error(
-						`No demo.svelte in ${fnName}, please add one.`
-					)
-					return
-				}
-
 				fn.docs = `${DOCS_URL}/${pkg.name}/${fnName}/`
 
 				const mdRaw = await fs.readFile(mdPath, "utf-8")
@@ -126,8 +118,13 @@ export async function readMetadata() {
 
 				if (related?.length) fn.related = related
 
-				await fs.copyFile(demoPath, join(docsPath, `_${fnName}.svelte`))
-
+				if (fs.existsSync(demoPath)) {
+					fn.demo = true
+					await fs.copyFile(
+						demoPath,
+						join(docsPath, `_${fnName}.svelte`)
+					)
+				}
 				indexes.functions.push(fn)
 			})
 		)
@@ -161,6 +158,10 @@ export async function readMetadata() {
 async function run() {
 	const indexes = await readMetadata()
 	await fs.writeJSON(join(__dirname, "index.json"), indexes, { spaces: 2 })
+	await fs.copy(
+		join(__dirname, "index.json"),
+		"./docs/src/routes/api/packages.json"
+	)
 }
 
 run()

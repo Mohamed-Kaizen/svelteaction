@@ -1,6 +1,6 @@
 ---
 title: useCore
-description: FFFFFFFFFFFFFFFA boolean switcher with utility functions   .
+description: FFFFFFFFFFFFFFFA boolean switcher with utility functions.
 category: Utilities
 ---
 
@@ -14,7 +14,9 @@ category: Utilities
 
 ## Demo
 
-<Demo/>
+<div id="demobox" >
+    <Demo/>
+</div>
 
 ## Usage
 

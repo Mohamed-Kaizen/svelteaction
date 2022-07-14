@@ -28,6 +28,7 @@ export interface SvelteActionFunction {
 	docs?: string
 	deprecated?: boolean
 	internal?: boolean
+	demo?: boolean
 	external?: string
 	alias?: string[]
 	related?: string[]

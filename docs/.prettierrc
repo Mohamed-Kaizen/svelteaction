@@ -1,12 +1,6 @@
 {
 	"useTabs": true,
-	"singleQuote": false,
-	"printWidth": 79,
-	"tabWidth": 4,
-	"semi": false,
-	"bracketSpacing": true,
-	"arrowParens": "always",
-	"trailingComma": "es5",
-	"svelteStrictMode": true,
-	"svelteIndentScriptAndStyle": true
+	"singleQuote": true,
+	"trailingComma": "none",
+	"printWidth": 100
 }

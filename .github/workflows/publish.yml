@@ -26,10 +26,17 @@ jobs:
 
             - run: pnpm install
 
-            - run: npx conventional-github-releaser -p angular
-              continue-on-error: true
-              env:
-                  CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.GITHUB_TOKEN}}
+            - name: Lint
+              run: pnpm run lint
+
+            - name: Build
+              run: pnpm run build
+
+            - name: Typecheck
+              run: pnpm run typecheck
+
+            - name: Test
+              run: pnpm run test
 
             - run: pnpm run publish:ci
               env:

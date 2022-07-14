@@ -7,3 +7,6 @@ types/
 !/rollup.config.js
 !.test
 .temp
+docs/
+docs/*
+

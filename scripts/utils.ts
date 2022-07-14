@@ -136,28 +136,6 @@ export async function updateIndexREADME({ functions }: PackageIndexes) {
 	await fs.writeFile("README.md", `${readme.trim()}\n`, "utf-8")
 }
 
-export async function updateFunctionsMD({
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	packages: SvelteActionFunction,
-	functions,
-}: PackageIndexes) {
-	let mdAddons = await fs.readFile("packages/add-ons.md", "utf-8")
-
-	const addons = Object.values(packages)
-		.filter((i) => i.addon && !i.deprecated)
-		.map(({ docs, name, display, description }) => {
-			return `## ${display} - [\`@svelteaction/${name}\`](${docs})\n${description}\n${stringifyFunctions(
-				functions.filter((i) => i.package === name),
-				false
-			)}`
-		})
-		.join("\n")
-
-	mdAddons = replacer(mdAddons, addons, "ADDONS_LIST")
-
-	await fs.writeFile("packages/add-ons.md", mdAddons, "utf-8")
-}
-
 export async function updateFunctionREADME(indexes: PackageIndexes) {
 	const hasTypes = fs.existsSync(DIR_TYPES)
 
@@ -174,42 +152,54 @@ export async function updateFunctionREADME(indexes: PackageIndexes) {
 
 ## Demo
 
-<Demo/>`
+<div id="demobox" >
+    <Demo/>
+</div>`
 		if (!fs.existsSync(mdPath)) continue
 
-		let readme = await fs.readFile(mdPath, "utf-8")
+		let mdFile = await fs.readFile(mdPath, "utf-8")
 
-		const { content, data = {} } = matter(readme)
-
-		const demoContent = content.replace(
-			"{$frontmatter.description}",
-			`{$frontmatter.description}\n${demo}`
-		)
+		const { content, data = {} } = matter(mdFile)
 
 		data.category = fn.category || "Unknown"
-
-		readme = `---\n${YAML.dump(data)}---\n\n${content.trim()}`
-
-		const demoReadme = `---\n${YAML.dump(data)}---\n\n${demoContent.trim()}`
 
 		const docsPath = `${DIR_DOCS_ROUTE}/[...${getPackageDocIndex(
 			fn.package
 		)}]${fn.package}`
 
-		await fs.writeFile(mdPath, `${readme.trim()}\n`, "utf-8")
+		if (fn.demo) {
+			const demoContent = content.replace(
+				"{$frontmatter.description}",
+				`{$frontmatter.description}\n${demo}`
+			)
 
-		await fs.writeFile(
-			join(docsPath, `${fn.name}.md`),
-			`${demoReadme.trim()}\n`,
-			"utf-8"
-		)
+			const demoReadme = `---\n${YAML.dump(
+				data
+			)}---\n\n${demoContent.trim()}`
+
+			await fs.writeFile(
+				join(docsPath, `${fn.name}.md`),
+				`${demoReadme.trim()}\n`,
+				"utf-8"
+			)
+		} else {
+			mdFile = `---\n${YAML.dump(data)}---\n\n${content.trim()}`
+			await fs.writeFile(
+				join(docsPath, `${fn.name}.md`),
+				`${mdFile.trim()}\n`,
+				"utf-8"
+			)
+		}
 	}
 }
 
 export async function updateCountBadge(indexes: PackageIndexes) {
 	const functionsCount = indexes.functions.filter((i) => i.internal).length
+
 	const url = `https://img.shields.io/badge/-${functionsCount}%20functions-13708a`
+
 	const data = await $fetch(url, { responseType: "text" })
+
 	await fs.writeFile(
 		join(DIR_ROOT, "docs/static/badge-function-count.svg"),
 		data,
@@ -222,32 +212,44 @@ export async function updatePackageJSON(indexes: PackageIndexes) {
 
 	for (const { name, description, author, submodules, iife } of packages) {
 		const packageDir = join(DIR_SRC, name)
+
 		const packageJSONPath = join(packageDir, "package.json")
+
 		const packageJSON = await fs.readJSON(packageJSONPath)
 
 		packageJSON.version = version
+
 		packageJSON.description = description || packageJSON.description
+
 		packageJSON.author =
 			author || "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>"
+
 		packageJSON.bugs = {
 			url: "https://github.com/Mohamed-Kaizen/svelteaction/issues",
 		}
+
 		packageJSON.homepage =
 			name === "core"
 				? "https://github.com/Mohamed-Kaizen/svelteaction#readme"
 				: `https://github.com/Mohamed-Kaizen/svelteaction/tree/main/packages/${name}#readme`
+
 		packageJSON.repository = {
 			type: "git",
 			url: "git+https://github.com/Mohamed-Kaizen/svelteaction.git",
 			directory: `packages/${name}`,
 		}
+
 		packageJSON.main = "./index.cjs"
+
 		packageJSON.types = "./index.d.ts"
+
 		packageJSON.module = "./index.mjs"
+
 		if (iife !== false) {
 			packageJSON.unpkg = "./index.iife.min.js"
 			packageJSON.jsdelivr = "./index.iife.min.js"
 		}
+
 		packageJSON.exports = {
 			".": {
 				import: "./index.mjs",
