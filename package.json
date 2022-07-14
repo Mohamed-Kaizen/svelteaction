@@ -21,10 +21,11 @@
 		"postinstall": "cd docs && pnpm install --ignore-workspace",
 		"publish:ci": "esno scripts/publish.ts",
 		"release": "esno scripts/release.ts && git push --follow-tags",
+		"size": "esno scripts/export-size.ts",
 		"test": "vitest run",
 		"test:watch": "vitest --watch",
 		"typecheck": "tsc --noEmit",
-		"update": "esno scripts/meta/update.ts && esno scripts/update.ts && esno scripts/export-size.ts",
+		"update": "esno scripts/meta/update.ts && esno scripts/update.ts",
 		"watch": "esno scripts/build.ts --watch"
 	},
 	"devDependencies": {
