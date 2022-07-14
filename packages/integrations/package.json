@@ -1,6 +1,6 @@
 {
   "name": "@svelteaction/integrations",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Integration wrappers for utility libraries",
   "author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
   "license": "MIT",
