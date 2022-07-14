@@ -1,7 +1,7 @@
 import type { SvelteActionFunction } from "./types"
 import { resolve } from "path"
 
-export const DOCS_URL = "https://svelteaction.org"
+export const DOCS_URL = "https://svelteaction.vercel.app"
 export const DIR_ROOT = resolve(__dirname, "../../")
 export const DIR_SRC = resolve(DIR_ROOT, "packages")
 export const DIR_DOCS = resolve(DIR_ROOT, "docs")

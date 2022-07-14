@@ -89,7 +89,7 @@ for `index.md` the first sentence will be displayed as the short intro in the fu
 This will be the intro. The detail descriptions...
 ```
 
-Read more about the [guidelines](https://svelteaction.org/guidelines).
+Read more about the [guidelines](https://svelteaction.vercel.app/guidelines).
 
 ## Code Style
 

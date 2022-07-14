@@ -1,59 +1,53 @@
 {
-  "packages": {
-    "shared": {
-      "name": "shared",
-      "display": "Shared utilities",
-      "dir": "packages/shared"
-    },
-    "core": {
-      "name": "core",
-      "display": "svelteaction",
-      "description": "Collection of essential Svelte Utilities",
-      "dir": "packages/core"
-    },
-    "integrations": {
-      "name": "integrations",
-      "display": "Integrations",
-      "description": "Integration wrappers for utility libraries",
-      "addon": true,
-      "submodules": true,
-      "external": [
-        "@svelteaction/core",
-        "@svelteaction/shared"
-      ],
-      "dir": "packages/integrations"
-    }
-  },
-  "categories": [
-    "Utilities",
-    "@Integrations"
-  ],
-  "functions": [
-    {
-      "name": "useCore",
-      "package": "core",
-      "lastUpdated": 1654259199000,
-      "docs": "https://svelteaction.org/core/useCore/",
-      "category": "Utilities",
-      "description": "FFFFFFFFFFFFFFFA boolean switcher with utility functions.",
-      "demo": true
-    },
-    {
-      "name": "useIntegrations",
-      "package": "integrations",
-      "lastUpdated": 1654259199000,
-      "docs": "https://svelteaction.org/integrations/useIntegrations/",
-      "category": "@Integrations",
-      "description": "ffffffffff functions.",
-      "demo": true
-    },
-    {
-      "name": "useShare",
-      "package": "shared",
-      "lastUpdated": 1654259199000,
-      "docs": "https://svelteaction.org/shared/useShare/",
-      "description": "",
-      "demo": true
-    }
-  ]
+	"packages": {
+		"shared": {
+			"name": "shared",
+			"display": "Shared utilities",
+			"dir": "packages/shared"
+		},
+		"core": {
+			"name": "core",
+			"display": "svelteaction",
+			"description": "Collection of essential Svelte Utilities",
+			"dir": "packages/core"
+		},
+		"integrations": {
+			"name": "integrations",
+			"display": "Integrations",
+			"description": "Integration wrappers for utility libraries",
+			"addon": true,
+			"submodules": true,
+			"external": ["@svelteaction/core", "@svelteaction/shared"],
+			"dir": "packages/integrations"
+		}
+	},
+	"categories": ["Utilities", "@Integrations"],
+	"functions": [
+		{
+			"name": "useCore",
+			"package": "core",
+			"lastUpdated": 1654259199000,
+			"docs": "https://svelteaction.vercel.app/core/useCore/",
+			"category": "Utilities",
+			"description": "FFFFFFFFFFFFFFFA boolean switcher with utility functions.",
+			"demo": true
+		},
+		{
+			"name": "useIntegrations",
+			"package": "integrations",
+			"lastUpdated": 1654259199000,
+			"docs": "https://svelteaction.vercel.app/integrations/useIntegrations/",
+			"category": "@Integrations",
+			"description": "ffffffffff functions.",
+			"demo": true
+		},
+		{
+			"name": "useShare",
+			"package": "shared",
+			"lastUpdated": 1654259199000,
+			"docs": "https://svelteaction.vercel.app/shared/useShare/",
+			"description": "",
+			"demo": true
+		}
+	]
 }
