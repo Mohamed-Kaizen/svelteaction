@@ -1,6 +1,6 @@
 {
 	"name": "@svelteaction/monorepo",
-	"version": "0.0.9",
+	"version": "0.0.10",
 	"private": true,
 	"packageManager": "pnpm@7.5.0",
 	"description": "Collection of essential Svelte Utilities",
