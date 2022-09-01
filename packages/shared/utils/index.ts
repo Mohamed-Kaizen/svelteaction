@@ -1,0 +1,155 @@
+import { get_current_component } from "svelte/internal"
+import { get, readable, writable } from "svelte/store"
+
+import { isReadable, isWritable } from "./is"
+
+import type { Readable, Writable } from "svelte/store"
+
+import type { MaybeReadable, MaybeWritable } from "./types"
+
+export * from "./is"
+export * from "./types"
+export * from "./filters"
+
+/**
+ * Silent `get_current_component`. Call `get_current_component()` without throw error.
+ */
+export function tryGetCurrentComponent() {
+	let currentComponent
+
+	try {
+		currentComponent = get_current_component()
+	} catch (_) {}
+
+	return currentComponent
+}
+
+export function promiseTimeout(
+	ms: number,
+	throwOnTimeout = false,
+	reason = "Timeout"
+): Promise<void> {
+	return new Promise((resolve, reject) => {
+		if (throwOnTimeout) setTimeout(() => reject(reason), ms)
+		else setTimeout(resolve, ms)
+	})
+}
+
+export function identity<T>(arg: T): T {
+	return arg
+}
+
+export interface SingletonPromiseReturn<T> {
+	(): Promise<T>
+	/**
+	 * Reset current staled promise.
+	 * await it to have proper shutdown.
+	 */
+	reset: () => Promise<void>
+}
+
+/**
+ * Create singleton promise function
+ *
+ * @example
+ * ```
+ * const promise = createSingletonPromise(async () => { ... })
+ *
+ * await promise()
+ * await promise() // all of them will be bind to a single promise instance
+ * await promise() // and be resolved together
+ * ```
+ */
+export function createSingletonPromise<T>(
+	fn: () => Promise<T>
+): SingletonPromiseReturn<T> {
+	let _promise: Promise<T> | undefined
+
+	function wrapper() {
+		if (!_promise) _promise = fn()
+		return _promise
+	}
+	wrapper.reset = async () => {
+		const _prev = _promise
+		_promise = undefined
+		if (_prev) await _prev
+	}
+
+	return wrapper
+}
+
+export function unstore<T>(val: MaybeReadable<T>): T {
+	return isReadable(val) ? get(val) : val
+}
+
+export function toReadable<T>(
+	val: MaybeReadable<T> | MaybeWritable<T>
+): Readable<T> {
+	if (isWritable(val)) {
+		return {
+			subscribe: val.subscribe,
+		}
+	}
+
+	return isReadable(val) ? val : readable(val)
+}
+
+export function toWritable<T>(
+	val: MaybeReadable<T> | MaybeWritable<T>
+): Writable<T> {
+	if (isWritable(val)) return val
+
+	if (isReadable(val)) return writable(get(val))
+
+	return writable(val)
+}
+
+export function invoke<T>(fn: () => T): T {
+	return fn()
+}
+
+export function containsKey(obj: object, ...keys: string[]) {
+	return keys.some((key) => key in obj)
+}
+
+/**
+ * Increase string a value with unit
+ *
+ * @example '2px' + 1 = '3px'
+ * @example '15em' + (-2) = '13em'
+ */
+export function increaseWithUnit(target: number, delta: number): number
+export function increaseWithUnit(target: string, delta: number): string
+export function increaseWithUnit(
+	target: string | number,
+	delta: number
+): string | number
+export function increaseWithUnit(
+	target: string | number,
+	delta: number
+): string | number {
+	if (typeof target === "number") return target + delta
+	const value = target.match(/^-?[0-9]+\.?[0-9]*/)?.[0] || ""
+	const unit = target.slice(value.length)
+	const result = parseFloat(value) + delta
+	if (Number.isNaN(result)) return target
+	return result + unit
+}
+
+/**
+ * Create a new subset object by giving keys
+ *
+ * @category Object
+ */
+export function objectPick<O, T extends keyof O>(
+	obj: O,
+	keys: T[],
+	omitUndefined = false
+) {
+	return keys.reduce((n, k) => {
+		if (k in obj) {
+			if (!omitUndefined || obj[k] !== undefined) n[k] = obj[k]
+		}
+		return n
+	}, {} as Pick<O, T>)
+}

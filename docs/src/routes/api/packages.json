@@ -1,53 +1,179 @@
 {
-	"packages": {
-		"shared": {
-			"name": "shared",
-			"display": "Shared utilities",
-			"dir": "packages/shared"
-		},
-		"core": {
-			"name": "core",
-			"display": "svelteaction",
-			"description": "Collection of essential Svelte Utilities",
-			"dir": "packages/core"
-		},
-		"integrations": {
-			"name": "integrations",
-			"display": "Integrations",
-			"description": "Integration wrappers for utility libraries",
-			"addon": true,
-			"submodules": true,
-			"external": ["@svelteaction/core", "@svelteaction/shared"],
-			"dir": "packages/integrations"
-		}
-	},
-	"categories": ["Utilities", "@Integrations"],
-	"functions": [
-		{
-			"name": "useCore",
-			"package": "core",
-			"lastUpdated": 1654259199000,
-			"docs": "https://svelteaction.vercel.app/core/useCore/",
-			"category": "Utilities",
-			"description": "FFFFFFFFFFFFFFFA boolean switcher with utility functions.",
-			"demo": true
-		},
-		{
-			"name": "useIntegrations",
-			"package": "integrations",
-			"lastUpdated": 1654259199000,
-			"docs": "https://svelteaction.vercel.app/integrations/useIntegrations/",
-			"category": "@Integrations",
-			"description": "ffffffffff functions.",
-			"demo": true
-		},
-		{
-			"name": "useShare",
-			"package": "shared",
-			"lastUpdated": 1654259199000,
-			"docs": "https://svelteaction.vercel.app/shared/useShare/",
-			"description": "",
-			"demo": true
-		}
-	]
+  "packages": {
+    "shared": {
+      "name": "shared",
+      "display": "Shared utilities",
+      "dir": "packages/shared"
+    },
+    "core": {
+      "name": "core",
+      "display": "svelteaction",
+      "description": "Collection of essential Svelte Utilities",
+      "dir": "packages/core"
+    },
+    "integrations": {
+      "name": "integrations",
+      "display": "Integrations",
+      "description": "Integration wrappers for utility libraries",
+      "addon": true,
+      "submodules": true,
+      "external": [
+        "@svelteaction/core",
+        "@svelteaction/shared"
+      ],
+      "dir": "packages/integrations"
+    }
+  },
+  "categories": [
+    "Utilities"
+  ],
+  "functions": [
+    {
+      "name": "createEventHook",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "makeDestructurable",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "tryOnDestroy",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useArrayFilter",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useArrayFind",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useArrayFindIndex",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useArrayJoin",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useArrayMap",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useArrayReduce",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useArraySome",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useCore",
+      "package": "core",
+      "lastUpdated": 1654259199000,
+      "docs": "https://svelteaction.vercel.app/core/useCore/",
+      "category": "Utilities",
+      "description": "FFFFFFFFFFFFFFFA boolean switcher with utility functions.",
+      "demo": true
+    },
+    {
+      "name": "useCounter",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useDateFormat",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useDebounceFn",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useInterval",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useIntervalFn",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useJwt",
+      "package": "integrations",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useThrottleFn",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useTimeout",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useTimeoutFn",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useToggle",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useToNumber",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "useToString",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
+      "name": "utils",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    }
+  ]
 }

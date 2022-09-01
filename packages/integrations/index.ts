@@ -1,1 +1,1 @@
-export * from './useIntegrations'
+export * from './useJwt'
