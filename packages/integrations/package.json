@@ -30,6 +30,16 @@
       "types": "./useJwt.d.ts",
       "import": "./useJwt.mjs",
       "require": "./useJwt.cjs"
+    },
+    "./useChangeCase": {
+      "types": "./useChangeCase.d.ts",
+      "import": "./useChangeCase.mjs",
+      "require": "./useChangeCase.cjs"
+    },
+    "./useQRCode": {
+      "types": "./useQRCode.d.ts",
+      "import": "./useQRCode.mjs",
+      "require": "./useQRCode.cjs"
     }
   },
   "main": "./index.cjs",
@@ -38,10 +48,18 @@
   "jsdelivr": "./index.iife.min.js",
   "types": "./index.d.ts",
   "peerDependencies": {
-    "jwt-decode": "*"
+    "change-case": "*",
+    "jwt-decode": "*",
+    "qrcode": "*"
   },
   "peerDependenciesMeta": {
+    "change-case": {
+      "optional": true
+    },
     "jwt-decode": {
+      "optional": true
+    },
+    "qrcode": {
       "optional": true
     }
   },
@@ -49,6 +67,9 @@
     "@svelteaction/shared": "workspace:*"
   },
   "devDependencies": {
-    "jwt-decode": "^3.1.2"
+    "@types/qrcode": "^1.5.0",
+    "change-case": "^4.1.2",
+    "jwt-decode": "^3.1.2",
+    "qrcode": "^1.5.1"
   }
 }

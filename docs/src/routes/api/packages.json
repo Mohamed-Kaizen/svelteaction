@@ -158,6 +158,12 @@
       "internal": true
     },
     {
+      "name": "useChangeCase",
+      "package": "integrations",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
       "name": "useClamp",
       "package": "math",
       "lastUpdated": 1662112029000,
@@ -242,6 +248,12 @@
       "name": "useProjection",
       "package": "math",
       "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "useQRCode",
+      "package": "integrations",
+      "lastUpdated": 0,
       "internal": true
     },
     {
