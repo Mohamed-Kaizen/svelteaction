@@ -160,7 +160,7 @@
     {
       "name": "useChangeCase",
       "package": "integrations",
-      "lastUpdated": 0,
+      "lastUpdated": 1662129127000,
       "internal": true
     },
     {
@@ -253,7 +253,7 @@
     {
       "name": "useQRCode",
       "package": "integrations",
-      "lastUpdated": 0,
+      "lastUpdated": 1662129127000,
       "internal": true
     },
     {
