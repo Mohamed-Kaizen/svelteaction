@@ -7,4 +7,4 @@ export function logicAnd(...args: any[]): boolean {
 }
 
 // alias
-export { logicAnd as and }
+export { logicAnd as logic_and, logicAnd as and }

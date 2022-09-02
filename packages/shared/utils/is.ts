@@ -39,9 +39,6 @@ export const now = () => Date.now()
 
 export const timestamp = () => +Date.now()
 
-export const clamp = (n: number, min: number, max: number) =>
-	Math.min(max, Math.max(min, n))
-
 export const noop = () => {}
 
 export const rand = (min: number, max: number) => {
