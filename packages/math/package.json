@@ -1,6 +1,6 @@
 {
   "name": "@svelteaction/math",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "Math functions for Svelte",
   "author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
   "license": "MIT",
