@@ -44,9 +44,33 @@
       "internal": true
     },
     {
+      "name": "createGenericProjection",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "createProjection",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
       "name": "logicAnd",
       "package": "math",
-      "lastUpdated": 1662091125000,
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "logicNot",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "logicOr",
+      "package": "math",
+      "lastUpdated": 1662112029000,
       "internal": true
     },
     {
@@ -59,6 +83,24 @@
       "name": "tryOnDestroy",
       "package": "shared",
       "lastUpdated": 1662058831000,
+      "internal": true
+    },
+    {
+      "name": "useAbs",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "useArgsFlat",
+      "package": "shared",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "useArrayEvery",
+      "package": "shared",
+      "lastUpdated": 1662112029000,
       "internal": true
     },
     {
@@ -104,6 +146,24 @@
       "internal": true
     },
     {
+      "name": "useAverage",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "useCeil",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "useClamp",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
       "name": "useCore",
       "package": "core",
       "lastUpdated": 1654259199000,
@@ -131,6 +191,12 @@
       "internal": true
     },
     {
+      "name": "useFloor",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
       "name": "useInterval",
       "package": "shared",
       "lastUpdated": 1662058831000,
@@ -146,6 +212,48 @@
       "name": "useJwt",
       "package": "integrations",
       "lastUpdated": 1662058831000,
+      "internal": true
+    },
+    {
+      "name": "useMath",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "useMax",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "useMin",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "usePrecision",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "useProjection",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "useRound",
+      "package": "math",
+      "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "useSum",
+      "package": "math",
+      "lastUpdated": 1662112029000,
       "internal": true
     },
     {
@@ -182,6 +290,12 @@
       "name": "useToString",
       "package": "shared",
       "lastUpdated": 1662058831000,
+      "internal": true
+    },
+    {
+      "name": "useTrunc",
+      "package": "math",
+      "lastUpdated": 1662112029000,
       "internal": true
     },
     {

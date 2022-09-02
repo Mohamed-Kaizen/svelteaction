@@ -12,4 +12,4 @@ export function useSum(...args: MaybeArgs<number>): number {
 }
 
 // alias
-export { useSum as use_average, useSum as sum }
+export { useSum as use_sum, useSum as sum }
