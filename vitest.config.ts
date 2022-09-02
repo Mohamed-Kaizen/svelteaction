@@ -9,6 +9,7 @@ export default defineConfig({
 				"packages/shared/index.ts"
 			),
 			"@svelteaction/core": resolve(__dirname, "packages/core/index.ts"),
+			"@svelteaction/math": resolve(__dirname, "packages/math/index.ts"),
 		},
 	},
 	test: {

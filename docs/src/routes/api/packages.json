@@ -11,6 +11,15 @@
       "description": "Collection of essential Svelte Utilities",
       "dir": "packages/core"
     },
+    "math": {
+      "name": "math",
+      "display": "Math",
+      "description": "Math functions for Svelte",
+      "external": [
+        "@svelteaction/shared"
+      ],
+      "dir": "packages/math"
+    },
     "integrations": {
       "name": "integrations",
       "display": "Integrations",
@@ -32,6 +41,12 @@
       "name": "createEventHook",
       "package": "shared",
       "lastUpdated": 1662058831000,
+      "internal": true
+    },
+    {
+      "name": "logicAnd",
+      "package": "math",
+      "lastUpdated": 0,
       "internal": true
     },
     {

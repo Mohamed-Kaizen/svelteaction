@@ -15,4 +15,4 @@ jobs:
             - uses: antfu/export-size-action@main
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  paths: packages/core,packages/shared,packages/integrations
+                  paths: packages/core,packages/shared,packages/integrations,packages/math

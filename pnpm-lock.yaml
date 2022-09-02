@@ -6,9 +6,10 @@ importers:
     specifiers:
       '@rollup/plugin-json': ^4.1.0
       '@rollup/plugin-replace': ^4.0.0
-      '@svelteaction/core': link:packages/core
-      '@svelteaction/integrations': link:packages/integrations
-      '@svelteaction/shared': link:packages/shared
+      '@svelteaction/core': workspace:*
+      '@svelteaction/integrations': workspace:*
+      '@svelteaction/math': workspace:*
+      '@svelteaction/shared': workspace:*
       '@types/fs-extra': ^9.0.13
       '@types/js-yaml': ^4.0.5
       '@types/md5': ^2.3.2
@@ -55,6 +56,7 @@ importers:
       '@rollup/plugin-replace': 4.0.0_rollup@2.77.2
       '@svelteaction/core': link:packages/core
       '@svelteaction/integrations': link:packages/integrations
+      '@svelteaction/math': link:packages/math
       '@svelteaction/shared': link:packages/shared
       '@types/fs-extra': 9.0.13
       '@types/js-yaml': 4.0.5
@@ -112,6 +114,12 @@ importers:
       '@svelteaction/shared': link:../shared
     devDependencies:
       jwt-decode: 3.1.2
+
+  packages/math:
+    specifiers:
+      '@svelteaction/shared': workspace:*
+    dependencies:
+      '@svelteaction/shared': link:../shared
 
   packages/shared:
     specifiers: {}

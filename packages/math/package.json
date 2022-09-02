@@ -1,14 +1,14 @@
 {
-  "name": "@svelteaction/integrations",
+  "name": "@svelteaction/math",
   "version": "3.0.5",
-  "description": "Integration wrappers for utility libraries",
+  "description": "Math functions for Svelte",
   "author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
   "license": "MIT",
-  "homepage": "https://github.com/Mohamed-Kaizen/svelteaction/tree/main/packages/integrations#readme",
+  "homepage": "https://github.com/Mohamed-Kaizen/svelteaction/tree/main/packages/math#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mohamed-Kaizen/svelteaction.git",
-    "directory": "packages/integrations"
+    "directory": "packages/math"
   },
   "bugs": {
     "url": "https://github.com/Mohamed-Kaizen/svelteaction/issues"
@@ -16,6 +16,7 @@
   "keywords": [
     "svelte",
     "svelte-action",
+    "math",
     "utils"
   ],
   "sideEffects": false,
@@ -25,30 +26,14 @@
       "import": "./index.mjs",
       "require": "./index.cjs"
     },
-    "./*": "./*",
-    "./useJwt": {
-      "types": "./useJwt.d.ts",
-      "import": "./useJwt.mjs",
-      "require": "./useJwt.cjs"
-    }
+    "./*": "./*"
   },
   "main": "./index.cjs",
   "module": "./index.mjs",
   "unpkg": "./index.iife.min.js",
   "jsdelivr": "./index.iife.min.js",
   "types": "./index.d.ts",
-  "peerDependencies": {
-    "jwt-decode": "*"
-  },
-  "peerDependenciesMeta": {
-    "jwt-decode": {
-      "optional": true
-    }
-  },
   "dependencies": {
     "@svelteaction/shared": "workspace:*"
-  },
-  "devDependencies": {
-    "jwt-decode": "^3.1.2"
   }
 }

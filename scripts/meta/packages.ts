@@ -13,6 +13,12 @@ export const packages: PackageManifest[] = [
 		description: "Collection of essential Svelte Utilities",
 	},
 	{
+		name: "math",
+		display: "Math",
+		description: "Math functions for Svelte",
+		external: ["@svelteaction/shared"],
+	},
+	{
 		name: "integrations",
 		display: "Integrations",
 		description: "Integration wrappers for utility libraries",

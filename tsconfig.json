@@ -21,6 +21,7 @@
 			"@svelteaction/core": ["./packages/core/index.ts"],
 			"@svelteaction/core/*": ["./packages/core/*"],
 			"@svelteaction/integrations": ["./packages/integrations/index.ts"],
+			"@svelteaction/math": ["./packages/math/index.ts"],
 			"@svelteaction/shared": ["./packages/shared/index.ts"],
 			"@svelteaction/shared/*": ["./packages/shared/*"]
 		},
