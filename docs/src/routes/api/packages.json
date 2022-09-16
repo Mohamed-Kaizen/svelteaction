@@ -257,9 +257,21 @@
       "internal": true
     },
     {
+      "name": "useRange",
+      "package": "shared",
+      "lastUpdated": 0,
+      "internal": true
+    },
+    {
       "name": "useRound",
       "package": "math",
       "lastUpdated": 1662112029000,
+      "internal": true
+    },
+    {
+      "name": "useSortObject",
+      "package": "shared",
+      "lastUpdated": 0,
       "internal": true
     },
     {
@@ -313,7 +325,7 @@
     {
       "name": "useWatch",
       "package": "shared",
-      "lastUpdated": 0,
+      "lastUpdated": 1662228436000,
       "internal": true
     },
     {
