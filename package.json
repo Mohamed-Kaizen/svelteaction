@@ -17,7 +17,6 @@
 		"lint:fix": "pnpm run lint --fix",
 		"postinstall": "cd docs && pnpm install --ignore-workspace",
 		"publish:ci": "esno scripts/publish.ts",
-		"releasde": "esno scripts/release.ts && git push --follow-tags",
 		"release": "bumpp --execute=\"npm run release:prepare\" --all",
 		"release:prepare": "npm run build:types && npm run update",
 		"size": "esno scripts/export-size.ts",
