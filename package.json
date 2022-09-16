@@ -1,6 +1,6 @@
 {
 	"name": "@svelteaction/monorepo",
-	"version": "3.0.15",
+	"version": "3.0.16",
 	"private": true,
 	"packageManager": "pnpm@7.5.0",
 	"description": "Collection of essential Svelte Utilities",
@@ -17,7 +17,9 @@
 		"lint:fix": "pnpm run lint --fix",
 		"postinstall": "cd docs && pnpm install --ignore-workspace",
 		"publish:ci": "esno scripts/publish.ts",
-		"release": "esno scripts/release.ts",
+		"releasde": "esno scripts/release.ts && git push --follow-tags",
+		"release": "bumpp --execute=\"npm run release:prepare\" --all",
+		"release:prepare": "npm run build:types && npm run update",
 		"size": "esno scripts/export-size.ts",
 		"test": "vitest run",
 		"test:watch": "vitest --watch",
