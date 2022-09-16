@@ -17,4 +17,4 @@ execSync("npm run update", { stdio: "inherit" })
 execSync("git add .", { stdio: "inherit" })
 
 execSync(`git commit -m "chore: release v${version}"`, { stdio: "inherit" })
-// execSync(`git tag -a v${version} -m "v${version}"`, { stdio: "inherit" })
+execSync(`git tag -a v${version} -m "v${version}"`, { stdio: "inherit" })

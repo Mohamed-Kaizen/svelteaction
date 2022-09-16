@@ -6,3 +6,6 @@ export function useSortObject(obj: { [key: string]: any }) {
 			return result
 		}, {})
 }
+
+// alias
+export { useSortObject as use_sort_object }

@@ -19,3 +19,6 @@ export function useRange(
 
 	return result
 }
+
+// alias
+export { useRange as use_range, useRange as range }
