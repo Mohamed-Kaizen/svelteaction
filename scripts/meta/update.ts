@@ -1,6 +1,5 @@
 import { join, relative } from "path"
 import fs from "fs-extra"
-import matter from "gray-matter"
 import type {
 	PackageIndexes,
 	SvelteActionFunction,
@@ -9,14 +8,7 @@ import type {
 import fg from "fast-glob"
 import Git from "simple-git"
 import { packages } from "./packages"
-import {
-	getCategories,
-	// DOCS_URL,
-	DIR_ROOT,
-	DIR_SRC,
-	// DIR_DOCS_ROUTE,
-	// getPackageDocIndex,
-} from "./utils"
+import { DIR_ROOT, DIR_SRC } from "./utils"
 
 export const git = Git(DIR_ROOT)
 
@@ -39,8 +31,6 @@ export async function readMetadata() {
 	}
 
 	for (const info of packages) {
-		if (info.utils) continue
-
 		const dir = join(DIR_SRC, info.name)
 
 		const functions = await listFunctions(dir)
@@ -52,17 +42,9 @@ export async function readMetadata() {
 
 		indexes.packages[info.name] = pkg
 
-		// const docsPath = `${DIR_DOCS_ROUTE}/[...${getPackageDocIndex(
-		// 	info.name
-		// )}]${info.name}`
-
-		// !fs.existsSync(docsPath) && fs.mkdirSync(docsPath)
-
 		await Promise.all(
 			functions.map(async (fnName) => {
-				const mdPath = join(dir, fnName, "index.md")
 				const tsPath = join(dir, fnName, "index.ts")
-				// const demoPath = join(dir, fnName, "demo.svelte")
 
 				const fn: SvelteActionFunction = {
 					name: fnName,
@@ -76,55 +58,6 @@ export async function readMetadata() {
 						])) * 1000,
 				}
 
-				if (!fs.existsSync(mdPath)) {
-					fn.internal = true
-					indexes.functions.push(fn)
-					return
-				}
-				// fn.docs = `${DOCS_URL}/${pkg.name}/${fnName}/`
-
-				const mdRaw = await fs.readFile(mdPath, "utf-8")
-
-				const { data: frontmatter } = matter(mdRaw)
-
-				const category = frontmatter.category
-
-				let alias = frontmatter.alias
-
-				if (typeof alias === "string")
-					alias = alias
-						.split(",")
-						.map((s) => s.trim())
-						.filter(Boolean)
-				let related = frontmatter.related
-
-				if (typeof related === "string")
-					related = related
-						.split(",")
-						.map((s) => s.trim())
-						.filter(Boolean)
-
-				const description = frontmatter.description?.trim() ?? ""
-
-				fn.category = ["core", "shared"].includes(pkg.name)
-					? category
-					: `@${pkg.display}`
-
-				fn.description = description
-
-				if (description.includes("DEPRECATED")) fn.deprecated = true
-
-				if (alias?.length) fn.alias = alias
-
-				if (related?.length) fn.related = related
-
-				// if (fs.existsSync(demoPath)) {
-				// 	fn.demo = true
-				// 	await fs.copyFile(
-				// 		demoPath,
-				// 		join(docsPath, `_${fnName}.svelte`)
-				// 	)
-				// }
 				indexes.functions.push(fn)
 			})
 		)
@@ -134,34 +67,12 @@ export async function readMetadata() {
 		a.name.localeCompare(b.name)
 	)
 
-	indexes.categories = getCategories(indexes.functions)
-
-	// interop related
-	indexes.functions.forEach((fn: SvelteActionFunction) => {
-		if (!fn.related) return
-
-		fn.related.forEach((name: string) => {
-			const target = indexes.functions.find(
-				(f: SvelteActionFunction) => f.name === name
-			)
-			if (!target) throw new Error(`Unknown related function: ${name}`)
-			if (!target.related) target.related = []
-			if (!target.related.includes(fn.name)) target.related.push(fn.name)
-		})
-	})
-
-	indexes.functions.forEach((fn: SvelteActionFunction) => fn.related?.sort())
-
 	return indexes
 }
 
 async function run() {
 	const indexes = await readMetadata()
 	await fs.writeJSON(join(__dirname, "index.json"), indexes, { spaces: 2 })
-	// await fs.copy(
-	// 	join(__dirname, "index.json"),
-	// 	"./docs/src/routes/api/packages.json"
-	// )
 }
 
 run()
