@@ -1,6 +1,7 @@
 import { execSync } from "child_process"
-import path from "path"
 import consola from "consola"
+import path from "path"
+
 import { version } from "../package.json"
 import { packages } from "./meta/packages"
 

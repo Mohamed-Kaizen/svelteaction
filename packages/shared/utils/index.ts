@@ -1,4 +1,3 @@
-import { get_current_component } from "svelte/internal"
 import { get, readable, writable } from "svelte/store"
 
 import { isReadable, isWritable } from "./is"
@@ -10,19 +9,6 @@ import type { MaybeReadable, MaybeWritable } from "./types"
 export * from "./is"
 export * from "./types"
 export * from "./filters"
-
-/**
- * Silent `get_current_component`. Call `get_current_component()` without throw error.
- */
-export function tryGetCurrentComponent() {
-	let currentComponent
-
-	try {
-		currentComponent = get_current_component()
-	} catch (_) {}
-
-	return currentComponent
-}
 
 export function promiseTimeout(
 	ms: number,
@@ -78,10 +64,6 @@ export function createSingletonPromise<T>(
 	return wrapper
 }
 
-export function unstore<T>(val: MaybeReadable<T>): T {
-	return isReadable(val) ? get(val) : val
-}
-
 export function toReadable<T>(
 	val: MaybeReadable<T> | MaybeWritable<T>
 ): Readable<T> {
@@ -108,10 +90,6 @@ export function invoke<T>(fn: () => T): T {
 	return fn()
 }
 
-export function containsKey(obj: object, ...keys: string[]) {
-	return keys.some((key) => key in obj)
-}
-
 /**
  * Increase string a value with unit
  *
@@ -134,22 +112,4 @@ export function increaseWithUnit(
 	const result = parseFloat(value) + delta
 	if (Number.isNaN(result)) return target
 	return result + unit
-}
-
-/**
- * Create a new subset object by giving keys
- *
- * @category Object
- */
-export function objectPick<O, T extends keyof O>(
-	obj: O,
-	keys: T[],
-	omitUndefined = false
-) {
-	return keys.reduce((n, k) => {
-		if (k in obj) {
-			if (!omitUndefined || obj[k] !== undefined) n[k] = obj[k]
-		}
-		return n
-	}, {} as Pick<O, T>)
 }

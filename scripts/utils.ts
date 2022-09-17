@@ -1,9 +1,11 @@
-import { join } from "path"
 import fs from "fs-extra"
+import { join } from "path"
 import Git from "simple-git"
-import type { PackageIndexes } from "./meta/types"
-import { packages } from "./meta/packages"
+
 import { DIR_SRC } from "./meta/utils"
+import { packages } from "./meta/packages"
+
+import type { PackageIndexes } from "./meta/types"
 
 export const git = Git()
 

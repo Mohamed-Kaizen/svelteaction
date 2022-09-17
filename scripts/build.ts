@@ -1,13 +1,14 @@
-import path from "path"
 import assert from "assert"
 import { execSync as exec } from "child_process"
+import consola from "consola"
 import fs from "fs-extra"
 import fg from "fast-glob"
-import consola from "consola"
-import { packages } from "./meta/packages"
-import { metadata } from "./meta/metadata"
+import path from "path"
+
 import { version } from "../package.json"
 import { updateImport } from "./utils"
+import { metadata } from "./meta/metadata"
+import { packages } from "./meta/packages"
 
 const rootDir = path.resolve(__dirname, "..")
 const watch = process.argv.includes("--watch")

@@ -1,11 +1,13 @@
+import json from "@rollup/plugin-json"
+import fg from "fast-glob"
 import { resolve } from "path"
-import type { Options as ESBuildOptions } from "rollup-plugin-esbuild"
 import esbuild from "rollup-plugin-esbuild"
 import dts from "rollup-plugin-dts"
-import json from "@rollup/plugin-json"
-import type { OutputOptions, RollupOptions } from "rollup"
-import fg from "fast-glob"
+
 import { packages } from "./meta/packages"
+
+import type { OutputOptions, RollupOptions } from "rollup"
+import type { Options as ESBuildOptions } from "rollup-plugin-esbuild"
 
 const configs: RollupOptions[] = []
 

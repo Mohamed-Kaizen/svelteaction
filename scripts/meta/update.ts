@@ -1,14 +1,16 @@
-import { join, relative } from "path"
 import fs from "fs-extra"
+import fg from "fast-glob"
+import { join, relative } from "path"
+import Git from "simple-git"
+
+import { packages } from "./packages"
+import { DIR_ROOT, DIR_SRC } from "./utils"
+
 import type {
 	PackageIndexes,
 	SvelteActionFunction,
 	SvelteActionPackage,
 } from "./types"
-import fg from "fast-glob"
-import Git from "simple-git"
-import { packages } from "./packages"
-import { DIR_ROOT, DIR_SRC } from "./utils"
 
 export const git = Git(DIR_ROOT)
 

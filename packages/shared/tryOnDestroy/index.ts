@@ -1,6 +1,6 @@
 import { onDestroy } from "svelte"
 
-import { tryGetCurrentComponent } from "../utils"
+import { tryGetCurrentComponent } from "../tryGetCurrentComponent"
 
 import type { Fn } from "../utils"
 
