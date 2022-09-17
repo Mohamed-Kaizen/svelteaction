@@ -1,5 +1,4 @@
 import _metadata, {
-	categories as _categories,
 	functions as _functions,
 	packages as _packages,
 } from "./index.json"

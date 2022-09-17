@@ -1,7 +1,7 @@
 import { writable } from "svelte/store"
 
 import { intervalFn } from "../intervalFn"
-import { toReadable } from "../utils"
+import { toReadable } from "../toReadable"
 
 import type { Readable } from "svelte/store"
 

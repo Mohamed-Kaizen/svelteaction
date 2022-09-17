@@ -1,7 +1,8 @@
 import { writable, get } from "svelte/store"
 
+import { toReadable } from "../toReadable"
 import { tryOnDestroy } from "../tryOnDestroy"
-import { isClient, isReadable, toReadable } from "../utils"
+import { isClient, isReadable } from "../utils"
 
 import type { Stoppable, MaybeStore } from "../utils"
 

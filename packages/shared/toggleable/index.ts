@@ -1,6 +1,8 @@
 import { get } from "svelte/store"
 
-import { isWritable, toWritable, toReadable } from "../utils"
+import { toReadable } from "../toReadable"
+import { toWritable } from "../toWritable"
+import { isWritable } from "../utils"
 
 import type { Writable, Readable } from "svelte/store"
 

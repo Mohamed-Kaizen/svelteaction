@@ -1,6 +1,6 @@
 import { get, writable } from "svelte/store"
 
-import { toReadable } from "../utils"
+import { toReadable } from "../toReadable"
 
 export interface CounterOptions {
 	min?: number
