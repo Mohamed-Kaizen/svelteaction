@@ -5,7 +5,7 @@ import dts from "rollup-plugin-dts"
 import json from "@rollup/plugin-json"
 import type { OutputOptions, RollupOptions } from "rollup"
 import fg from "fast-glob"
-import { packages } from "../meta/packages"
+import { packages } from "./meta/packages"
 
 const configs: RollupOptions[] = []
 
