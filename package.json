@@ -16,7 +16,6 @@
 		"docs:build": "cd docs && pnpm run build && vercel .",
 		"lint": "eslint .",
 		"lint:fix": "pnpm run lint --fix",
-		"postinssdtall": "cd docs && pnpm install",
 		"publish:ci": "esno scripts/publish.ts",
 		"release": "bumpp --execute=\"npm run release:prepare\" --all",
 		"release:prepare": "npm run build:types && npm run update",
