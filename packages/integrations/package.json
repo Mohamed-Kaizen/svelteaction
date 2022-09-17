@@ -26,20 +26,20 @@
       "require": "./index.cjs"
     },
     "./*": "./*",
-    "./useJwt": {
-      "types": "./useJwt.d.ts",
-      "import": "./useJwt.mjs",
-      "require": "./useJwt.cjs"
+    "./changeCase": {
+      "types": "./changeCase.d.ts",
+      "import": "./changeCase.mjs",
+      "require": "./changeCase.cjs"
     },
-    "./useChangeCase": {
-      "types": "./useChangeCase.d.ts",
-      "import": "./useChangeCase.mjs",
-      "require": "./useChangeCase.cjs"
+    "./jwt": {
+      "types": "./jwt.d.ts",
+      "import": "./jwt.mjs",
+      "require": "./jwt.cjs"
     },
-    "./useQRCode": {
-      "types": "./useQRCode.d.ts",
-      "import": "./useQRCode.mjs",
-      "require": "./useQRCode.cjs"
+    "./qrCode": {
+      "types": "./qrCode.d.ts",
+      "import": "./qrCode.mjs",
+      "require": "./qrCode.cjs"
     }
   },
   "main": "./index.cjs",

@@ -14,3 +14,6 @@ export function tryOnDestroy(fn: Fn) {
 		onDestroy(fn)
 	}
 }
+
+// alias
+export { tryOnDestroy as try_on_destroy }

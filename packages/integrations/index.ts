@@ -1,3 +1,3 @@
-export * from './useChangeCase'
-export * from './useJwt'
-export * from './useQRCode'
+export * from './changeCase'
+export * from './jwt'
+export * from './qrCode'

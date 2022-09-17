@@ -20,8 +20,9 @@ export function makeDestructurable<
 
 		return clone as T & A
 	} else {
-		// eslint-disable-next-line
-		// @ts-ignore
-		return Object.assign([...arr], obj) as T & A
+		return Object.assign([...arr], obj) as unknown as T & A
 	}
 }
+
+// alias
+export { makeDestructurable as make_destructurable }
