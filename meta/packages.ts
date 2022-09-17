@@ -15,7 +15,7 @@ export const packages: PackageManifest[] = [
 	{
 		name: "math",
 		display: "Math",
-		description: "Math functions for VueUse",
+		description: "Math functions for Svelte",
 		external: ["@svelteaction/shared"],
 	},
 	{

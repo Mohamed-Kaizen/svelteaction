@@ -1,9 +1,6 @@
 import { createGenericProjection } from "../createGenericProjection"
 
-import type {
-	ProjectorFunction,
-	UseProjection,
-} from "../createGenericProjection"
+import type { ProjectorFunction, Projection } from "../createGenericProjection"
 
 const defaultNumericProjector = (
 	input: number,
@@ -17,7 +14,7 @@ export function createProjection(
 	fromDomain: readonly [number, number],
 	toDomain: readonly [number, number],
 	projector: ProjectorFunction<number, number> = defaultNumericProjector
-): UseProjection<number, number> {
+): Projection<number, number> {
 	return createGenericProjection(fromDomain, toDomain, projector)
 }
 

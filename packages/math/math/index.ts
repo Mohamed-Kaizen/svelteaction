@@ -1,6 +1,6 @@
 import type { ArgumentsType } from "@svelteaction/shared"
 
-export type UseMathKeys = keyof {
+export type MathKeys = keyof {
 	[K in keyof Math as Math[K] extends (...args: any) => any
 		? K
 		: never]: unknown
