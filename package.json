@@ -2,7 +2,7 @@
 	"name": "@svelteaction/monorepo",
 	"version": "3.0.16",
 	"private": true,
-	"packageManager": "pnpm@7.5.0",
+	"packageManager": "pnpm@7.11.0",
 	"description": "Collection of essential Svelte Utilities",
 	"author": "Mohamed Nesredin<https://github.com/Mohamed-Kaizen>",
 	"license": "MIT",
@@ -12,10 +12,11 @@
 		"build:types": "tsc --emitDeclarationOnly",
 		"clean": "rimraf dist types packages/*/dist",
 		"coverage": "vitest run --coverage",
+		"docs:dev": "cd docs && pnpm run dev",
 		"docs:build": "cd docs && pnpm run build && vercel .",
 		"lint": "eslint .",
 		"lint:fix": "pnpm run lint --fix",
-		"postinstall": "cd docs && pnpm install --ignore-workspace",
+		"postinssdtall": "cd docs && pnpm install",
 		"publish:ci": "esno scripts/publish.ts",
 		"release": "bumpp --execute=\"npm run release:prepare\" --all",
 		"release:prepare": "npm run build:types && npm run update",
@@ -70,10 +71,10 @@
 		"sharp": "^0.30.7",
 		"simple-git": "^3.10.0",
 		"simple-git-hooks": "^2.8.0",
-		"svelte": "^3.49.0",
-		"typescript": "4.7.4",
-		"vite": "^3.0.2",
-		"vitest": "^0.18.1"
+		"svelte": "^3.50.1",
+		"typescript": "4.8.3",
+		"vite": "^3.1.1",
+		"vitest": "^0.23.2"
 	},
 	"simple-git-hooks": {
 		"pre-commit": "npx lint-staged"

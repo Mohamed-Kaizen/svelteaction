@@ -1,22 +1,23 @@
-import { join, resolve } from "path"
+// import { join, resolve } from "path"
+import { join } from "path"
 import fs from "fs-extra"
-import matter from "gray-matter"
-import YAML from "js-yaml"
+// import matter from "gray-matter"
+// import YAML from "js-yaml"
 import Git from "simple-git"
 import type { PackageIndexes, SvelteActionFunction } from "./meta/types"
-import { $fetch } from "ohmyfetch"
+// import { $fetch } from "ohmyfetch"
 import { packages } from "./meta/packages"
 import {
 	getCategories,
-	DIR_ROOT,
+	// DIR_ROOT,
 	DIR_SRC,
-	DIR_DOCS_ROUTE,
-	getPackageDocIndex,
+	// DIR_DOCS_ROUTE,
+	// getPackageDocIndex,
 } from "./meta/utils"
 
 export const git = Git()
 
-const DIR_TYPES = resolve(__dirname, "../types/packages")
+// const DIR_TYPES = resolve(__dirname, "../types/packages")
 
 export async function updateImport({ packages, functions }: PackageIndexes) {
 	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -136,76 +137,73 @@ export async function updateIndexREADME({ functions }: PackageIndexes) {
 	await fs.writeFile("README.md", `${readme.trim()}\n`, "utf-8")
 }
 
-export async function updateFunctionREADME(indexes: PackageIndexes) {
-	const hasTypes = fs.existsSync(DIR_TYPES)
+// export async function updateFunctionREADME(indexes: PackageIndexes) {
+// 	const hasTypes = fs.existsSync(DIR_TYPES)
 
-	if (!hasTypes)
-		console.warn("No types dist found, run `npm run build:types` first.")
+// 	if (!hasTypes)
+// 		console.warn("No types dist found, run `npm run build:types` first.")
 
-	for (const fn of indexes.functions) {
-		const mdPath = `packages/${fn.package}/${fn.name}/index.md`
+// 	// 	for (const fn of indexes.functions) {
+// 	// 		const mdPath = `packages/${fn.package}/${fn.name}/index.md`
 
-		const demo = `
-<script>
-    import Demo from "./_${fn.name}.svelte";
-</script>
+// 	// 		const demo = `
+// 	// <script>
+// 	//     import Demo from "./_${fn.name}.svelte";
+// 	// </script>
 
-## Demo
+// 	// ## Demo
 
-<div id="demobox" >
-    <Demo/>
-</div>`
-		if (!fs.existsSync(mdPath)) continue
+// 	// <div id="demobox" >
+// 	//     <Demo/>
+// 	// </div>`
+// 	// 		if (!fs.existsSync(mdPath)) continue
 
-		let mdFile = await fs.readFile(mdPath, "utf-8")
+// 	// 		let mdFile = await fs.readFile(mdPath, "utf-8")
 
-		const { content, data = {} } = matter(mdFile)
+// 	// 		const { content, data = {} } = matter(mdFile)
 
-		data.category = fn.category || "Unknown"
+// 	// 		data.category = fn.category || "Unknown"
 
-		const docsPath = `${DIR_DOCS_ROUTE}/[...${getPackageDocIndex(
-			fn.package
-		)}]${fn.package}`
+// 	// 		const docsPath = `${DIR_DOCS_ROUTE}/[...${getPackageDocIndex(
+// 	// 			fn.package
+// 	// 		)}]${fn.package}`
 
-		if (fn.demo) {
-			const demoContent = content.replace(
-				"{$frontmatter.description}",
-				`{$frontmatter.description}\n${demo}`
-			)
+// 	// 		if (fn.demo) {
+// 	// 			const demoContent = content.replace(
+// 	// 				"{$frontmatter.description}",
+// 	// 				`{$frontmatter.description}\n${demo}`
+// 	// 			)
 
-			const demoReadme = `---\n${YAML.dump(
-				data
-			)}---\n\n${demoContent.trim()}`
+// 	// 			const demoReadme = `---\n${YAML.dump(
+// 	// 				data
+// 	// 			)}---\n\n${demoContent.trim()}`
 
-			await fs.writeFile(
-				join(docsPath, `${fn.name}.md`),
-				`${demoReadme.trim()}\n`,
-				"utf-8"
-			)
-		} else {
-			mdFile = `---\n${YAML.dump(data)}---\n\n${content.trim()}`
-			await fs.writeFile(
-				join(docsPath, `${fn.name}.md`),
-				`${mdFile.trim()}\n`,
-				"utf-8"
-			)
-		}
-	}
-}
+// 	// 			await fs.writeFile(
+// 	// 				join(docsPath, `${fn.name}.md`),
+// 	// 				`${demoReadme.trim()}\n`,
+// 	// 				"utf-8"
+// 	// 			)
+// 	// 		} else {
+// 	// 			mdFile = `---\n${YAML.dump(data)}---\n\n${content.trim()}`
+// 	// 			await fs.writeFile(
+// 	// 				join(docsPath, `${fn.name}.md`),
+// 	// 				`${mdFile.trim()}\n`,
+// 	// 				"utf-8"
+// 	// 			)
+// 	// 		}
+// 	// 	}
+// }
 
-export async function updateCountBadge(indexes: PackageIndexes) {
-	const functionsCount = indexes.functions.filter((i) => i.internal).length
-
-	const url = `https://img.shields.io/badge/-${functionsCount}%20functions-13708a`
-
-	const data = await $fetch(url, { responseType: "text" })
-
-	await fs.writeFile(
-		join(DIR_ROOT, "docs/static/badge-function-count.svg"),
-		data,
-		"utf-8"
-	)
-}
+// export async function updateCountBadge(indexes: PackageIndexes) {
+// 	// const functionsCount = indexes.functions.filter((i) => i.internal).length
+// 	// const url = `https://img.shields.io/badge/-${functionsCount}%20functions-13708a`
+// 	// const data = await $fetch(url, { responseType: "text" })
+// 	// await fs.writeFile(
+// 	// 	join(DIR_ROOT, "docs/static/badge-function-count.svg"),
+// 	// 	data,
+// 	// 	"utf-8"
+// 	// )
+// }
 
 export async function updatePackageJSON(indexes: PackageIndexes) {
 	const { version } = await fs.readJSON("package.json")
@@ -276,44 +274,44 @@ export async function updatePackageJSON(indexes: PackageIndexes) {
 	}
 }
 
-async function fetchContributors(page = 1) {
-	const additional = ["egoist"]
+// async function fetchContributors(page = 1) {
+// 	const additional = ["egoist"]
 
-	const collaborators: string[] = []
-	const data =
-		(await $fetch<{ login: string }[]>(
-			`https://api.github.com/repos/Mohamed-Kaizen/svelteaction/contributors?per_page=100&page=${page}`,
-			{
-				method: "get",
-				headers: {
-					"content-type": "application/json",
-				},
-			}
-		)) || []
-	collaborators.push(...data.map((i) => i.login))
-	if (data.length === 100)
-		collaborators.push(...(await fetchContributors(page + 1)))
+// 	const collaborators: string[] = []
+// 	const data =
+// 		(await $fetch<{ login: string }[]>(
+// 			`https://api.github.com/repos/Mohamed-Kaizen/svelteaction/contributors?per_page=100&page=${page}`,
+// 			{
+// 				method: "get",
+// 				headers: {
+// 					"content-type": "application/json",
+// 				},
+// 			}
+// 		)) || []
+// 	collaborators.push(...data.map((i) => i.login))
+// 	if (data.length === 100)
+// 		collaborators.push(...(await fetchContributors(page + 1)))
 
-	return Array.from(
-		new Set([
-			...collaborators.filter(
-				(collaborator) =>
-					![
-						"renovate[bot]",
-						"dependabot[bot]",
-						"renovate-bot",
-					].includes(collaborator)
-			),
-			...additional,
-		])
-	)
-}
+// 	return Array.from(
+// 		new Set([
+// 			...collaborators.filter(
+// 				(collaborator) =>
+// 					![
+// 						"renovate[bot]",
+// 						"dependabot[bot]",
+// 						"renovate-bot",
+// 					].includes(collaborator)
+// 			),
+// 			...additional,
+// 		])
+// 	)
+// }
 
 export async function updateContributors() {
-	const collaborators = await fetchContributors()
-	await fs.writeFile(
-		"docs/src/routes/api/contributors.json",
-		`${JSON.stringify(collaborators, null, 4)}\n`,
-		"utf8"
-	)
+	// const collaborators = await fetchContributors()
+	// await fs.writeFile(
+	// 	"docs/src/routes/api/contributors.json",
+	// 	`${JSON.stringify(collaborators, null, 4)}\n`,
+	// 	"utf8"
+	// )
 }

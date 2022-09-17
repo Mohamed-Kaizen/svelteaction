@@ -1,3 +1,3 @@
-export function useCore() {
-	return "Hello from core"
+export function useCore(){
+    return ""
 }

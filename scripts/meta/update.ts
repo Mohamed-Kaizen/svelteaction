@@ -11,11 +11,11 @@ import Git from "simple-git"
 import { packages } from "./packages"
 import {
 	getCategories,
-	DOCS_URL,
+	// DOCS_URL,
 	DIR_ROOT,
 	DIR_SRC,
-	DIR_DOCS_ROUTE,
-	getPackageDocIndex,
+	// DIR_DOCS_ROUTE,
+	// getPackageDocIndex,
 } from "./utils"
 
 export const git = Git(DIR_ROOT)
@@ -52,17 +52,17 @@ export async function readMetadata() {
 
 		indexes.packages[info.name] = pkg
 
-		const docsPath = `${DIR_DOCS_ROUTE}/[...${getPackageDocIndex(
-			info.name
-		)}]${info.name}`
+		// const docsPath = `${DIR_DOCS_ROUTE}/[...${getPackageDocIndex(
+		// 	info.name
+		// )}]${info.name}`
 
-		!fs.existsSync(docsPath) && fs.mkdirSync(docsPath)
+		// !fs.existsSync(docsPath) && fs.mkdirSync(docsPath)
 
 		await Promise.all(
 			functions.map(async (fnName) => {
 				const mdPath = join(dir, fnName, "index.md")
 				const tsPath = join(dir, fnName, "index.ts")
-				const demoPath = join(dir, fnName, "demo.svelte")
+				// const demoPath = join(dir, fnName, "demo.svelte")
 
 				const fn: SvelteActionFunction = {
 					name: fnName,
@@ -81,7 +81,7 @@ export async function readMetadata() {
 					indexes.functions.push(fn)
 					return
 				}
-				fn.docs = `${DOCS_URL}/${pkg.name}/${fnName}/`
+				// fn.docs = `${DOCS_URL}/${pkg.name}/${fnName}/`
 
 				const mdRaw = await fs.readFile(mdPath, "utf-8")
 
@@ -118,13 +118,13 @@ export async function readMetadata() {
 
 				if (related?.length) fn.related = related
 
-				if (fs.existsSync(demoPath)) {
-					fn.demo = true
-					await fs.copyFile(
-						demoPath,
-						join(docsPath, `_${fnName}.svelte`)
-					)
-				}
+				// if (fs.existsSync(demoPath)) {
+				// 	fn.demo = true
+				// 	await fs.copyFile(
+				// 		demoPath,
+				// 		join(docsPath, `_${fnName}.svelte`)
+				// 	)
+				// }
 				indexes.functions.push(fn)
 			})
 		)
@@ -158,10 +158,10 @@ export async function readMetadata() {
 async function run() {
 	const indexes = await readMetadata()
 	await fs.writeJSON(join(__dirname, "index.json"), indexes, { spaces: 2 })
-	await fs.copy(
-		join(__dirname, "index.json"),
-		"./docs/src/routes/api/packages.json"
-	)
+	// await fs.copy(
+	// 	join(__dirname, "index.json"),
+	// 	"./docs/src/routes/api/packages.json"
+	// )
 }
 
 run()
