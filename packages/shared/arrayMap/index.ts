@@ -6,10 +6,10 @@
  *
  * @returns {Array} a new array with each element being the result of the callback function.
  */
-export function arrayMap<T>(
+export function arrayMap<T, U = T>(
 	list: T[],
-	fn: (element: T, index: number, array: T[]) => T
-): T[] {
+	fn: (element: T, index: number, array: T[]) => U
+): U[] {
 	return list.map(fn)
 }
 
