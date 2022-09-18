@@ -1,12 +1,4 @@
-import type { Readable, Updater, Writable } from "svelte/store"
-
-/**
- * A writable that allow to set/update `null` or `undefined`
- */
-export type RemovableWritable<T> = Writable<T> & {
-	set(this: void, value: T | null | undefined): void
-	update(this: void, updater: Updater<T | null | undefined>): void
-}
+import type { Readable, Writable } from "svelte/store"
 
 /**
  * Maybe it's a Readable, or not.
