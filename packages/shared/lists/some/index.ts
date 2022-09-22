@@ -6,7 +6,7 @@
  *
  * @returns {boolean} **true** if the `fn` function returns a **truthy** value for any element from the array. Otherwise, **false**.
  */
-export function arraySome<T>(
+export function some<T>(
 	list: T[],
 	fn: (element: T, index: number, array: T[]) => unknown
 ): boolean {
@@ -14,6 +14,3 @@ export function arraySome<T>(
 		return fn(element, index, array)
 	})
 }
-
-// alias
-export { arraySome as array_some }

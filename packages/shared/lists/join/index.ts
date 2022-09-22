@@ -6,9 +6,6 @@
  *
  * @returns {string} a string with all array elements joined. If arr.length is 0, the empty string is returned.
  */
-export function arrayJoin<T>(list: T[], separator?: string): string {
+export function join<T>(list: T[], separator?: string): string {
 	return list.join(separator)
 }
-
-// alias
-export { arrayJoin as array_join }

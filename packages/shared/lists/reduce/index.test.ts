@@ -1,18 +1,18 @@
-import { arrayReduce } from "."
+import { reduce } from "."
 
-describe("arrayReduce", () => {
+describe("reduce", () => {
 	it("should be defined", () => {
-		expect(arrayReduce).toBeDefined()
+		expect(reduce).toBeDefined()
 	})
 
 	it("should work", () => {
-		const result = arrayReduce([1, 2, 3, 4], (prev, curr) => prev + curr, 0)
+		const result = reduce([1, 2, 3, 4], (prev, curr) => prev + curr, 0)
 
 		expect(result).toEqual(10)
 	})
 
 	it("should work with different type", () => {
-		const result = arrayReduce(
+		const result = reduce(
 			[1, 2, 3, 4],
 			(prev, curr) => prev + curr.toString(),
 			""
@@ -22,13 +22,13 @@ describe("arrayReduce", () => {
 	})
 
 	it("should work with empty array", () => {
-		const result = arrayReduce([], (prev, curr) => prev + curr, 0)
+		const result = reduce([], (prev, curr) => prev + curr, 0)
 
 		expect(result).toEqual(0)
 	})
 
 	it("should work with empty initial value", () => {
-		const result = arrayReduce([1, 2, 3, 4], (prev, curr) => prev + curr)
+		const result = reduce([1, 2, 3, 4], (prev, curr) => prev + curr)
 
 		expect(result).toEqual(10)
 	})

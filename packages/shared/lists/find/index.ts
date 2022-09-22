@@ -6,7 +6,7 @@
  *
  * @returns the first element in the array that satisfies the provided testing function. Otherwise, undefined is returned.
  */
-export function arrayFind<T>(
+export function find<T>(
 	list: T[],
 	fn: (element: T, index: number, array: T[]) => unknown
 ): T | undefined {
@@ -14,6 +14,3 @@ export function arrayFind<T>(
 		return fn(element, index, array)
 	})
 }
-
-// alias
-export { arrayFind as array_find }

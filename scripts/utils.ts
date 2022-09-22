@@ -20,6 +20,7 @@ export async function updateImport({ packages, functions }: PackageIndexes) {
 		imports = functions
 			.filter((i) => i.package === name)
 			.map((f) => f.name)
+			.filter((i) => i !== "lists")
 			.sort()
 			.map((name) => `export * from './${name}'`)
 

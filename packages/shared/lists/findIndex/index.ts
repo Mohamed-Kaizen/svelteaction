@@ -6,7 +6,7 @@
  *
  * @returns {number} the index of the first element in the array that passes the test. Otherwise, "-1".
  */
-export function arrayFindIndex<T>(
+export function findIndex<T>(
 	list: T[],
 	fn: (element: T, index: number, array: T[]) => unknown
 ): number {
@@ -15,4 +15,4 @@ export function arrayFindIndex<T>(
 	})
 }
 // alias
-export { arrayFindIndex as array_find_index }
+export { findIndex as find_index }

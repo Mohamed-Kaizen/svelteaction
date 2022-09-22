@@ -1,4 +1,4 @@
-export type ArrayReducer<PV, CV, R> = (
+export type Reducer<PV, CV, R> = (
 	previousValue: PV,
 	currentValue: CV,
 	currentIndex: number
@@ -12,7 +12,7 @@ export type ArrayReducer<PV, CV, R> = (
  *
  * @returns the value that results from running the "reducer" callback function to completion over the entire array.
  */
-export function arrayReduce<T>(list: T[], reducer: ArrayReducer<T, T, T>): T
+export function reduce<T>(list: T[], reducer: Reducer<T, T, T>): T
 
 /**
  * `Array.reduce`
@@ -23,9 +23,9 @@ export function arrayReduce<T>(list: T[], reducer: ArrayReducer<T, T, T>): T
  *
  * @returns the value that results from running the "reducer" callback function to completion over the entire array.
  */
-export function arrayReduce<T, U>(
+export function reduce<T, U>(
 	list: T[],
-	reducer: ArrayReducer<U, T, U>,
+	reducer: Reducer<U, T, U>,
 	initialValue: U
 ): U
 
@@ -38,7 +38,7 @@ export function arrayReduce<T, U>(
  *
  * @returns the value that results from running the "reducer" callback function to completion over the entire array.
  */
-export function arrayReduce<T>(
+export function reduce<T>(
 	list: T[],
 	reducer: (...p: any[]) => any,
 	...args: any[]
@@ -50,6 +50,3 @@ export function arrayReduce<T>(
 		? list.reduce(reduceCallback, args[0])
 		: list.reduce(reduceCallback)
 }
-
-// alias
-export { arrayReduce as array_reduce }
