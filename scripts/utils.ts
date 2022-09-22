@@ -17,7 +17,7 @@ export async function updateImport({ packages, functions }: PackageIndexes) {
 
 		let imports: string[] = []
 
-		const uniqueImports: string[] = ["lists"]
+		const uniqueImports: string[] = ["lists", "dicts"]
 
 		imports = functions
 			.filter((i) => i.package === name)

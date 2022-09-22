@@ -6,34 +6,26 @@ describe("range", () => {
 	})
 
 	it("should work", () => {
-		expect(range(5)).toEqual([0, 1, 2, 3, 4])
+		const items: number[] = []
+		for (const item of range(0, 4)) items.push(item)
+		assert.deepEqual(items, [0, 1, 2, 3, 4])
+	})
 
-		expect(range(5, 10)).toEqual([5, 6, 7, 8, 9])
+	it("should work with negative numbers", () => {
+		const items: number[] = []
+		for (const item of range(-2, 2)) items.push(item)
+		assert.deepEqual(items, [-2, -1, 0, 1, 2])
+	})
 
-		expect(range(5, 10, 2)).toEqual([5, 7, 9])
+	it("should work with negative numbers and a step", () => {
+		const items: number[] = []
+		for (const item of range(-2, 2, 2)) items.push(item)
+		assert.deepEqual(items, [-2, 0, 2])
+	})
 
-		expect(range(10, 5, -1)).toEqual([10, 9, 8, 7, 6])
-
-		expect(range(10, 5, -2)).toEqual([10, 8, 6])
-
-		expect(range(10, 5, -3)).toEqual([10, 7])
-
-		expect(range(10, 5, -4)).toEqual([10, 6])
-
-		expect(range(10, 5, -5)).toEqual([10])
-
-		expect(range(10, 5, -6)).toEqual([10])
-
-		expect(range(5, 10, -1)).toEqual([])
-
-		expect(range(5, 10, -2)).toEqual([])
-
-		expect(range(5, 10, -3)).toEqual([])
-
-		expect(range(5, 10, -4)).toEqual([])
-
-		expect(range(5, 10, -5)).toEqual([])
-
-		expect(range(5, 10, -6)).toEqual([])
+	it("should work with starting value only", () => {
+		const items: number[] = []
+		for (const item of range(5)) items.push(item)
+		assert.deepEqual(items, [0, 1, 2, 3, 4, 5])
 	})
 })

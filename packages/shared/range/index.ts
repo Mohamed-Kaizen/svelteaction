@@ -1,8 +1,8 @@
-export function range(
+export function* range(
 	start: number,
 	stop?: number,
 	step: number = 1
-): number[] {
+): Generator<number> {
 	if (typeof stop === "undefined") {
 		stop = start
 		start = 0
@@ -12,10 +12,8 @@ export function range(
 		return []
 	}
 
-	const result = []
-	for (let i = start; step > 0 ? i < stop : i > stop; i += step) {
-		result.push(i)
+	for (let i = start; i <= stop; i += step) {
+		yield i
+		if (i + step > stop) break
 	}
-
-	return result
 }

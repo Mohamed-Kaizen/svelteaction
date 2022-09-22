@@ -1,4 +1,4 @@
-export type MaybeArgs<T> = T[] | [T[]]
+export type MaybeArgs<T> = T[] | T[][]
 
 export function argsFlat<T>(args: MaybeArgs<T>): T[] {
 	return args.flatMap((i: any) => {
