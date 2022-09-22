@@ -9,7 +9,7 @@ export * from './debounceFn'
 export * from './interval'
 export * from './intervalFn'
 export * from './lastChanged'
-export * from './lists'
+export * as lists from "./lists"
 export * from './makeDestructurable'
 export * from './objectPick'
 export * from './range'

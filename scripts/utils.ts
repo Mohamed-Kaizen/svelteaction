@@ -17,11 +17,17 @@ export async function updateImport({ packages, functions }: PackageIndexes) {
 
 		let imports: string[] = []
 
+		const uniqueImports: string[] = ["lists"]
+
 		imports = functions
 			.filter((i) => i.package === name)
 			.map((f) => f.name)
 			.sort()
-			.map((name) => `export * from './${name}'`)
+			.map((name) => {
+				if (uniqueImports.includes(name))
+					return `export * as ${name} from "./${name}"`
+				return `export * from './${name}'`
+			})
 
 		if (name === "core") {
 			imports.push(
