@@ -26,10 +26,155 @@
       "require": "./index.cjs"
     },
     "./*": "./*",
+    "./adjustWithUnit": {
+      "types": "./adjustWithUnit.d.ts",
+      "import": "./adjustWithUnit.mjs",
+      "require": "./adjustWithUnit.cjs"
+    },
+    "./argsFlat": {
+      "types": "./argsFlat.d.ts",
+      "import": "./argsFlat.mjs",
+      "require": "./argsFlat.cjs"
+    },
+    "./containsKey": {
+      "types": "./containsKey.d.ts",
+      "import": "./containsKey.mjs",
+      "require": "./containsKey.cjs"
+    },
+    "./counter": {
+      "types": "./counter.d.ts",
+      "import": "./counter.mjs",
+      "require": "./counter.cjs"
+    },
+    "./createEventHook": {
+      "types": "./createEventHook.d.ts",
+      "import": "./createEventHook.mjs",
+      "require": "./createEventHook.cjs"
+    },
+    "./createSingletonPromise": {
+      "types": "./createSingletonPromise.d.ts",
+      "import": "./createSingletonPromise.mjs",
+      "require": "./createSingletonPromise.cjs"
+    },
+    "./dateFormat": {
+      "types": "./dateFormat.d.ts",
+      "import": "./dateFormat.mjs",
+      "require": "./dateFormat.cjs"
+    },
+    "./debounceFn": {
+      "types": "./debounceFn.d.ts",
+      "import": "./debounceFn.mjs",
+      "require": "./debounceFn.cjs"
+    },
+    "./interval": {
+      "types": "./interval.d.ts",
+      "import": "./interval.mjs",
+      "require": "./interval.cjs"
+    },
+    "./intervalFn": {
+      "types": "./intervalFn.d.ts",
+      "import": "./intervalFn.mjs",
+      "require": "./intervalFn.cjs"
+    },
+    "./lastChanged": {
+      "types": "./lastChanged.d.ts",
+      "import": "./lastChanged.mjs",
+      "require": "./lastChanged.cjs"
+    },
+    "./makeDestructurable": {
+      "types": "./makeDestructurable.d.ts",
+      "import": "./makeDestructurable.mjs",
+      "require": "./makeDestructurable.cjs"
+    },
+    "./objectPick": {
+      "types": "./objectPick.d.ts",
+      "import": "./objectPick.mjs",
+      "require": "./objectPick.cjs"
+    },
+    "./range": {
+      "types": "./range.d.ts",
+      "import": "./range.mjs",
+      "require": "./range.cjs"
+    },
+    "./sleep": {
+      "types": "./sleep.d.ts",
+      "import": "./sleep.mjs",
+      "require": "./sleep.cjs"
+    },
+    "./sortObject": {
+      "types": "./sortObject.d.ts",
+      "import": "./sortObject.mjs",
+      "require": "./sortObject.cjs"
+    },
+    "./throttleFn": {
+      "types": "./throttleFn.d.ts",
+      "import": "./throttleFn.mjs",
+      "require": "./throttleFn.cjs"
+    },
+    "./timeout": {
+      "types": "./timeout.d.ts",
+      "import": "./timeout.mjs",
+      "require": "./timeout.cjs"
+    },
+    "./timeoutFn": {
+      "types": "./timeoutFn.d.ts",
+      "import": "./timeoutFn.mjs",
+      "require": "./timeoutFn.cjs"
+    },
+    "./toggleable": {
+      "types": "./toggleable.d.ts",
+      "import": "./toggleable.mjs",
+      "require": "./toggleable.cjs"
+    },
+    "./toNumber": {
+      "types": "./toNumber.d.ts",
+      "import": "./toNumber.mjs",
+      "require": "./toNumber.cjs"
+    },
+    "./toReadable": {
+      "types": "./toReadable.d.ts",
+      "import": "./toReadable.mjs",
+      "require": "./toReadable.cjs"
+    },
+    "./toString": {
+      "types": "./toString.d.ts",
+      "import": "./toString.mjs",
+      "require": "./toString.cjs"
+    },
+    "./toWritable": {
+      "types": "./toWritable.d.ts",
+      "import": "./toWritable.mjs",
+      "require": "./toWritable.cjs"
+    },
+    "./tryGetCurrentComponent": {
+      "types": "./tryGetCurrentComponent.d.ts",
+      "import": "./tryGetCurrentComponent.mjs",
+      "require": "./tryGetCurrentComponent.cjs"
+    },
+    "./tryOnDestroy": {
+      "types": "./tryOnDestroy.d.ts",
+      "import": "./tryOnDestroy.mjs",
+      "require": "./tryOnDestroy.cjs"
+    },
+    "./unstore": {
+      "types": "./unstore.d.ts",
+      "import": "./unstore.mjs",
+      "require": "./unstore.cjs"
+    },
+    "./utils": {
+      "types": "./utils.d.ts",
+      "import": "./utils.mjs",
+      "require": "./utils.cjs"
+    },
+    "./watchable": {
+      "types": "./watchable.d.ts",
+      "import": "./watchable.mjs",
+      "require": "./watchable.cjs"
+    },
     "./lists": {
-      "types": "./lists/index.d.ts",
-      "import": "./lists/index.mjs",
-      "require": "./lists/index.cjs"
+      "types": "./lists.d.ts",
+      "import": "./lists.mjs",
+      "require": "./lists.cjs"
     }
   },
   "main": "./index.cjs",

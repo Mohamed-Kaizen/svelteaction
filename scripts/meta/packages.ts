@@ -6,6 +6,7 @@ export const packages: PackageManifest[] = [
 	{
 		name: "shared",
 		display: "Shared utilities",
+		submodules: true,
 	},
 	{
 		name: "core",
