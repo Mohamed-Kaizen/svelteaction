@@ -27,19 +27,14 @@
       "require": "./index.cjs"
     },
     "./*": "./*",
-    "./aa": [
-      {
-        "types": "./aa.d.ts",
-        "import": "./aa.mjs",
-        "require": "./aa.iife.js"
-      },
-      "./aa.iife.js"
-    ]
+    "./store": {
+      "types": "./aa/index.d.ts",
+      "import": "./aa/index.mjs",
+      "require": "./aa/index.cjs"
+    }
   },
   "main": "./index.cjs",
   "module": "./index.mjs",
-  "unpkg": "./index.iife.min.js",
-  "jsdelivr": "./index.iife.min.js",
   "types": "./index.d.ts",
   "dependencies": {
     "@svelteaction/shared": "workspace:*"
