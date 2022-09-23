@@ -22,12 +22,12 @@ export async function updateImport({ packages, functions }: PackageIndexes) {
 		imports = functions
 			.filter((i) => i.package === name)
 			.map((f) => f.name)
-			.sort()
-			.map((name) => {
-				// if (uniqueImports.includes(name))
-				// 	return `export * as ${name} from "./${name}"`
-				return `export * from './${name}'`
+			.filter((i) => {
+				if (uniqueImports.includes(i)) return false
+				return true
 			})
+			.sort()
+			.map((name) => `export * from './${name}'`)
 
 		if (name === "core") {
 			imports.push(
