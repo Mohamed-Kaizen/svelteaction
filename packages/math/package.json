@@ -27,106 +27,14 @@
       "require": "./index.cjs"
     },
     "./*": "./*",
-    "./aa": {
-      "types": "./aa.d.ts",
-      "import": "./aa.mjs",
-      "require": "./aa.cjs"
-    },
-    "./abs": {
-      "types": "./abs.d.ts",
-      "import": "./abs.mjs",
-      "require": "./abs.cjs"
-    },
-    "./average": {
-      "types": "./average.d.ts",
-      "import": "./average.mjs",
-      "require": "./average.cjs"
-    },
-    "./ceil": {
-      "types": "./ceil.d.ts",
-      "import": "./ceil.mjs",
-      "require": "./ceil.cjs"
-    },
-    "./clamp": {
-      "types": "./clamp.d.ts",
-      "import": "./clamp.mjs",
-      "require": "./clamp.cjs"
-    },
-    "./createGenericProjection": {
-      "types": "./createGenericProjection.d.ts",
-      "import": "./createGenericProjection.mjs",
-      "require": "./createGenericProjection.cjs"
-    },
-    "./createProjection": {
-      "types": "./createProjection.d.ts",
-      "import": "./createProjection.mjs",
-      "require": "./createProjection.cjs"
-    },
-    "./floor": {
-      "types": "./floor.d.ts",
-      "import": "./floor.mjs",
-      "require": "./floor.cjs"
-    },
-    "./logicAnd": {
-      "types": "./logicAnd.d.ts",
-      "import": "./logicAnd.mjs",
-      "require": "./logicAnd.cjs"
-    },
-    "./logicNot": {
-      "types": "./logicNot.d.ts",
-      "import": "./logicNot.mjs",
-      "require": "./logicNot.cjs"
-    },
-    "./logicOr": {
-      "types": "./logicOr.d.ts",
-      "import": "./logicOr.mjs",
-      "require": "./logicOr.cjs"
-    },
-    "./math": {
-      "types": "./math.d.ts",
-      "import": "./math.mjs",
-      "require": "./math.cjs"
-    },
-    "./max": {
-      "types": "./max.d.ts",
-      "import": "./max.mjs",
-      "require": "./max.cjs"
-    },
-    "./min": {
-      "types": "./min.d.ts",
-      "import": "./min.mjs",
-      "require": "./min.cjs"
-    },
-    "./precision": {
-      "types": "./precision.d.ts",
-      "import": "./precision.mjs",
-      "require": "./precision.cjs"
-    },
-    "./projection": {
-      "types": "./projection.d.ts",
-      "import": "./projection.mjs",
-      "require": "./projection.cjs"
-    },
-    "./random": {
-      "types": "./random.d.ts",
-      "import": "./random.mjs",
-      "require": "./random.cjs"
-    },
-    "./round": {
-      "types": "./round.d.ts",
-      "import": "./round.mjs",
-      "require": "./round.cjs"
-    },
-    "./sum": {
-      "types": "./sum.d.ts",
-      "import": "./sum.mjs",
-      "require": "./sum.cjs"
-    },
-    "./trunc": {
-      "types": "./trunc.d.ts",
-      "import": "./trunc.mjs",
-      "require": "./trunc.cjs"
-    }
+    "./aa": [
+      {
+        "types": "./aa.d.ts",
+        "import": "./aa.mjs",
+        "require": "./aa.cjs"
+      },
+      "./aa.cjs"
+    ]
   },
   "main": "./index.cjs",
   "module": "./index.mjs",

@@ -6,7 +6,6 @@ export const packages: PackageManifest[] = [
 	{
 		name: "shared",
 		display: "Shared utilities",
-		submodules: true,
 	},
 	{
 		name: "core",
@@ -17,7 +16,6 @@ export const packages: PackageManifest[] = [
 		name: "math",
 		display: "Math",
 		description: "Math functions for Svelte",
-		submodules: true,
 		external: ["@svelteaction/shared"],
 	},
 	{
