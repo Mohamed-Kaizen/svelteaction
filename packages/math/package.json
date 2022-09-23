@@ -31,9 +31,9 @@
       {
         "types": "./aa.d.ts",
         "import": "./aa.mjs",
-        "require": "./aa.cjs"
+        "require": "./aa.iife.js"
       },
-      "./aa.cjs"
+      "./aa.iife.js"
     ]
   },
   "main": "./index.cjs",
