@@ -25,7 +25,12 @@
       "import": "./index.mjs",
       "require": "./index.cjs"
     },
-    "./*": "./*"
+    "./*": "./*",
+    "./lists": {
+      "types": "./lists/index.d.ts",
+      "import": "./lists/index.mjs",
+      "require": "./lists/index.cjs"
+    }
   },
   "main": "./index.cjs",
   "module": "./index.mjs",

@@ -24,8 +24,8 @@ export async function updateImport({ packages, functions }: PackageIndexes) {
 			.map((f) => f.name)
 			.sort()
 			.map((name) => {
-				if (uniqueImports.includes(name))
-					return `export * as ${name} from "./${name}"`
+				// if (uniqueImports.includes(name))
+				// 	return `export * as ${name} from "./${name}"`
 				return `export * from './${name}'`
 			})
 
